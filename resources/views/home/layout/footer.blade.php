@@ -1,0 +1,20 @@
+
+<div class="container-layout bg-black">
+    <div class="border-top padding-top foot">
+        <div class="text-center">
+            <ul class="nav nav-inline">
+                <li><a>网站首页</a> </li>
+                <li><a>技术反馈</a> </li>
+                <li><a>留言反馈</a> </li>
+                <li><a>联系方式</a> </li>
+            </ul>
+        </div>
+        <div class="text-center height-big">
+            Copyright © 2014 - 2016  荏苒博客  & 版权所有&nbsp;&nbsp;&nbsp; |<a href="/Admin/login/index.html" target="_blank"> 博客管理  </a>
+            |<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256135378'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1256135378' type='text/javascript'%3E%3C/script%3E"));</script>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+@yield('footer')
