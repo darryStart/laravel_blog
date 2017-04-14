@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <title>荏苒博客</title>
+    <title>忆犹博客</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" href="{{asset('public/static/Home/css/lunbo.css')}}" />
-    <link rel="stylesheet" href="{{asset('public/static/Home/css/pintuer.css')}}">
-    <link rel="stylesheet" href="{{asset('public/static/Home/css/my.css')}}">
-    <link rel="stylesheet" href="{{asset('public/static/Home/css/page_css.css')}}">
-    <link rel="stylesheet" href="{{asset('public/static/Home/css/gotop.css')}}" />
-    <script src="{{asset('public/static/Home/js/jquery.js')}}"></script>
-    <script src="{{asset('public/static/Home/js/pintuer.js')}}"></script>
-    <script src="{{asset('public/static/Home/js/respond.js')}}"></script>
-    <script src="{{asset('public/static/Home/layer/layer.js')}}"></script>
-    <script src="{{asset('public/static/Home/js/gotop.js')}}" ></script>
-    <script src="{{asset('public/static/Home/js/jquery.touchSlider.js')}}"></script>
+    <link rel="stylesheet" href="{{asset('static/Home/css/lunbo.css')}}" />
+    <link rel="stylesheet" href="{{asset('static/Home/css/pintuer.css')}}">
+    <link rel="stylesheet" href="{{asset('static/Home/css/my.css')}}">
+    <link rel="stylesheet" href="{{asset('static/Home/css/page_css.css')}}">
+    <link rel="stylesheet" href="{{asset('static/Home/css/gotop.css')}}" />
+    <script src="{{asset('static/Home/js/jquery.js')}}"></script>
+    <script src="{{asset('static/Home/js/pintuer.js')}}"></script>
+    <script src="{{asset('static/Home/js/respond.js')}}"></script>
+    <script src="{{asset('static/Home/layer/layer.js')}}"></script>
+    <script src="{{asset('static/Home/js/gotop.js')}}" ></script>
+    <script src="{{asset('static/Home/js/jquery.touchSlider.js')}}"></script>
+    <script src="{{asset('static/Home/js/jquery.touchSlider.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $(".main_visual").hover(function(){
