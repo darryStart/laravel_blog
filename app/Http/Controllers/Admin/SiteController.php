@@ -15,7 +15,8 @@ class SiteController extends CommonController
 {
     public function site()
     {
-        return view('admin.site.site');
+        $site_data = Site::all();
+        return view('admin.site.site',array('site_data' => $site_data));
     }
 
 
