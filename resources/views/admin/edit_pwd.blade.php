@@ -53,21 +53,21 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">原密码</label>
                                 <div class="col-sm-6">
-                                    <input type="password" name="old_pwd" placeholder="原密码" class="form-control">
+                                    <input type="password" name="old_pwd" placeholder="原密码" value="{{old('old_pwd')}}" class="form-control">
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">新密码</label>
                                 <div class="col-sm-6">
-                                    <input type="password" name="password" placeholder="新密码" class="form-control">
+                                    <input type="password" name="password" placeholder="新密码" value="{{old('password')}}" class="form-control">
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">重复新密码</label>
                                 <div class="col-sm-6">
-                                    <input type="password" name="password_confirmation" placeholder="重复新密码" class="form-control">
+                                    <input type="password" name="password_confirmation" {{old('password_confirmation')}} placeholder="重复新密码" class="form-control">
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>

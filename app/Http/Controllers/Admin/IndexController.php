@@ -3,14 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Model\Admin\Admin;
-use Illuminate\Http\Request;
-
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
-class IndexController extends Controller
+class IndexController extends CommonController
 {
     //首页
     public function index()
@@ -47,20 +44,17 @@ class IndexController extends Controller
 
                 //写入
                 $data = array(
-//                    'id' => session('admin_session.id'),
                     'password' => encrypt_code($input['password'])
                 );
-                echo session('admin_session.id');exit();
                 $status = Admin::where('id',session('admin_session.id'))->update($data);
                 if($status){
-                    $input->session()->flush();
+                    Session::flush();//清空session
                     return redirect()->route('admin_login');
                 }else{
-                    return back()->with('errors','修改失败，请重新修改!');
+                    return back()->with('errors','修改失败，请重新修改!')->withInput($input);
                 }
-
             }else{
-                return back()->withErrors($volidator);
+                return back()->withErrors($volidator)->withInput($input);
             }
         }else{
             return view('admin.edit_pwd');
