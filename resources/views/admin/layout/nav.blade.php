@@ -38,29 +38,31 @@
                 </li>
                 <li>
                     <li class="active">
-                        <a href="/index.php?s=/Admin/index/index.html">
+                        <a href="{{url('/')}}" target="_blank">
                             <i class="icon fa fa-home"></i><span>首页</span>
                             <span class="label label-danger pull-right">NEW</span>
                         </a>
                     </li>
+
+                    <li class="submenu">
+                        <a><i class="icon fa fa-envelope"></i> <span>网站管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="{{url('admin/site/site')}}">网站设置</a></li>
+                            <li><a href="{{url('admin/site/site_add')}}">添加设置</a></li>
+                        </ul>
+                    </li>
                     <li class="submenu">
                         <a href="#">
                             <i class="icon fa fa-gears"></i> <span>系统管理</span>
-                            <span class="fa arrow">
+                            <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
                             <li><a href="/index.php?s=/Admin/system/role.html">角色管理</a></li>
                             <li><a href="/index.php?s=/Admin/system/userlist.html">用户管理</a></li>
                             <li><a href="/index.php?s=/Admin/system/indexnotice.html">系统消息</a></li>
                             <li><a href="/index.php?s=/Admin/system/carousel_list.html">轮播管理</a></li>
-                        </ul>
-                    </li>
-                    <li class="submenu">
-                        <a href="#"><i class="icon fa fa-envelope"></i> <span>网站管理</span>
-                            <span class="fa arrow">
-                        </a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="/index.php?s=/Admin/site/index.html">网站设置</a></li>
                         </ul>
                     </li>
                     <li class="submenu">

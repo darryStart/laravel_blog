@@ -15,6 +15,15 @@
     padding:0;
     margin:0;
     line-height:22px;
-    font-size:12px;
+
+}
+
+.error_notice_p{
+    font-size: 12px;
     color:red;
+}
+
+.success_notice_p{
+    color:#1ab394;
+    font-size:14px;
 }
