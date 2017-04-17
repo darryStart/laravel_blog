@@ -54,6 +54,12 @@ return [
             'visibility' => 'public',
         ],
 
+        //网站配置上传图片
+        'site_uplods' => [
+            'driver' => 'local',
+            'root' => public_path('uploads/Site'),
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => 'your-key',

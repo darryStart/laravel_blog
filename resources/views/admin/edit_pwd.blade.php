@@ -31,14 +31,15 @@
                             <div class="mark">
                                 @if(is_object($errors))
                                     @foreach($errors->all() as $error)
-                                        <li>{{$error}}</li>
+                                        <li class="error_notice_p">{{$error}}</li>
                                     @endforeach
                                 @else
-                                    <li>{{$errors}}</li>
+                                    <li class="error_notice_p">{{$errors}}</li>
                                 @endif
                             </div>
                         @endif
                     </div>
+
                     <div class="ibox-content">
 
                         <form class="form-horizontal" method="post" name="basic_validate" id="basic_validate">

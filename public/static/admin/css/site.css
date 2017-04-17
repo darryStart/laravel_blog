@@ -1,0 +1,32 @@
+.input-file-wrapper input[type="file"]{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip:rect(0,0,0,0);
+}
+.input-file-wrapper .custorm-style{
+    display: block;
+    width: 800px;
+}
+.input-file-wrapper .custorm-style .left-button{
+    width: 80px;
+    line-height: 34px;
+    background: #008ac7;
+    color: #fff;
+    display: block;
+    text-align: center;
+    float: right;
+    border-radius: 2px;
+}
+.input-file-wrapper .custorm-style .right-text{
+    width: 720px;
+    height: 34px;
+    line-height: 33px;
+    display: block;
+    border: 1px solid #e5e6e7;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 15px;
+}
