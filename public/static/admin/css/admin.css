@@ -27,3 +27,12 @@
     color:#1ab394;
     font-size:14px;
 }
+
+
+/*列表*/
+.long-tr th{
+    text-align: center
+}
+.long-td td{
+    text-align: center
+}

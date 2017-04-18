@@ -8,7 +8,7 @@
                         <li class="list-group-item">
                             <p class="text-success"><a href="{{url('admin/index')}}" title="返回首页" class="tip-bottom"><i class="fa fa-home"></i> 首页</a> /
                                 <a href="{{url('admin/site/site')}}" class="tip-bottom">网站管理</a> /
-                                <a href="{{url('admin/site/site_add')}}" class="tip-bottom">添加配置</a>
+                                <a href="{{url('admin/site/site_add',[$data->site_id])}}" class="tip-bottom">编辑配置</a>
                             </p>
                         </li>
                     </ul>
@@ -48,17 +48,18 @@
                 <div class="ibox-content">
                     <form class="form-horizontal" method="post" name="basic_validate" id="signupForm">
                         {{csrf_field()}}
+                        <input type="hidden" name="site_id" value="{{$data->site_id}}"/>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">配置名称</label>
                             <div class="col-sm-6">
-                                <input type="text" name="site_key_desc" class="form-control">
+                                <input type="text" name="site_key_desc" value="{{$data->site_key_desc}}" class="form-control">
                             </div>
                         </div>
                         <div class="hr-line-dashed"></div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">配置字段名</label>
                             <div class="col-sm-6">
-                                <input type="text" name="site_key" class="form-control">
+                                <input type="text" name="site_key" value="{{$data->site_key}}" class="form-control">
                             </div>
                         </div>
 
@@ -69,9 +70,9 @@
                             <div class="col-sm-6">
                                 <div class="radio i-checks">
                                     <label>
-                                        <input type="radio" checked="checked" value="6" name="site_type"> <i></i> 文字</label>
+                                        <input type="radio" @if($data->site_type == '6') checked="checked" @endif value="6" name="site_type"> <i></i> 文字</label>
                                     <label>
-                                        <input type="radio" value="8" name="site_type"> <i></i> 图片</label>
+                                        <input type="radio" @if($data->site_type == '8') checked="checked" @endif value="8" name="site_type"> <i></i> 图片</label>
                                 </div>
                             </div>
                         </div>

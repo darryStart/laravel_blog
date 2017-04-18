@@ -14,8 +14,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        //切割字符串
         Blade::directive('substr', function($expression) {
             return "<?php echo substr{$expression}; ?>";
+        });
+
+        //时间打印
+        Blade::directive('date',function ($expression) {
+           return "<?php echo date{$expression};?>";
         });
     }
 

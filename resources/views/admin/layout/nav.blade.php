@@ -50,7 +50,7 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li><a href="{{url('admin/site/site')}}">网站设置</a></li>
-                            <li><a href="{{url('admin/site/site_add')}}">添加设置</a></li>
+                            <li><a href="{{url('admin/site/site_list')}}">设置列表</a></li>
                         </ul>
                     </li>
                     <li class="submenu">

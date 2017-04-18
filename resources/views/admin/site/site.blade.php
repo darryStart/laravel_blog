@@ -10,7 +10,7 @@
                     <ul class="list-group">
                         <li class="list-group-item">
                             <p class="text-success"><a href="{:U('Index/index')}" title="返回首页" class="tip-bottom"><i class="fa fa-home"></i> 首页</a> /
-                                <a href="" class="tip-bottom">网站管理</a> /<a href="{:U('Site/index')}" class="current">网站设置</a></p>
+                                <a href="" class="tip-bottom">网站管理</a> /<a href="{{url('admin/site/site')}}" class="current">网站设置</a></p>
                         </li>
                     </ul>
                 </div>
