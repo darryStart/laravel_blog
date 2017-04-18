@@ -1,5 +1,5 @@
 <div class="footer" style="position: fixed;z-index: 999;bottom: 0;width: 89%;">
-    <div class="pull-right">{:C('address')}</div>
+    <div class="pull-right">{{config('site.site_copyright','')}}</div>
 </div>
 </div>
 </div>
@@ -7,7 +7,6 @@
 <script type="text/javascript" src="{{asset('static/admin/js/bootstrap.min.js?v=3.3.5')}}"></script>
 <script type="text/javascript" src="{{asset('static/admin/js/plugins/metisMenu/jquery.metisMenu.js')}}"></script>
 <script type="text/javascript" src="{{asset('static/admin/js/plugins/slimscroll/jquery.slimscroll.min.js')}}"></script>
-<!--<script type="text/javascript" src="{{asset('static/admin/js/plugins/layer/layer.min.js')}}"></script>-->
 <script type="text/javascript" src="{{asset('static/admin/js/hplus.min.js?v=4.0.0')}}"></script>
 <script type="text/javascript" src="{{asset('static/admin/js/contabs.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('static/admin/js/plugins/pace/pace.min.js')}}"></script>

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-    <title>忆犹博客</title>
+    <title>{{config('site.site_name')}}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="{{config('site.site_desc','博客')}}"/>
+    <meta name="keywords" content="{{config('site.site_seo','博客')}}"/>
     <link rel="stylesheet" href="{{asset('static/Home/css/lunbo.css')}}" />
     <link rel="stylesheet" href="{{asset('static/Home/css/pintuer.css')}}">
     <link rel="stylesheet" href="{{asset('static/Home/css/my.css')}}">

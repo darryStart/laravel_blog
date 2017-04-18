@@ -60,7 +60,7 @@
     </div>
     <div class="signup-footer">
         <div class="pull-left">
-            {:C('address')}&nbsp;&nbsp;&nbsp;{:C('copyright')}
+            {{config('site.site_copyright')}}
         </div>
     </div>
 </div>

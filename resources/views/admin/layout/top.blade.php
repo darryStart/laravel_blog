@@ -10,7 +10,7 @@
         <ul class="nav navbar-top-links navbar-right">
             <li>
 				<span class="m-r-sm text-muted welcome-message">
-					<a href="{:U('Index/index')}" title="返回首页"><i class="fa fa-home"></i></a>欢迎使用{{config('web.web_name')}}博客管理系统
+					<a href="{:U('Index/index')}" title="返回首页"><i class="fa fa-home"></i></a>欢迎使用{{config('site.site_name','博客')}}管理系统
 					{{--<span class="label label-danger pull-right">{$Os}</span>--}}
 				</span>
             </li>

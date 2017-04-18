@@ -7,8 +7,7 @@
             <ul class="nav" id="side-menu">
                 <li class="nav-header">
                     <div class="dropdown profile-element">
-                        <span><img alt="image" class="img-circle" src="{{asset(session('admin_session.userimg'))}}"
-                                   width="70px" height="70px"/></span>
+                        <span><img alt="image" class="img-circle" src="{{asset(session('admin_session.userimg'))}}" width="70px" height="70px"/></span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
                                <span class="block m-t-xs"><strong>{{session('admin_session.user')}}</strong></span>

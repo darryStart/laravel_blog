@@ -8,7 +8,7 @@
             <div class="xl12 xs3 xm3 xb2">
                 <button class="button icon-navicon float-right" data-target="#header-demo"></button>
                 <a href="/">
-                    <img src="{{asset('static/home/images/logo.png')}}" class="ring-hover"/>
+                    <img src="{{config('site.site_logo')}}" class="ring-hover"/>
                 </a>
             </div>
             <div class=" xl12 xs9 xm9 xb10 nav-navicon" id="header-demo">
