@@ -1,13 +1,12 @@
 <?php
-	/**
-	 * @param $code 编码
-	 * @param $msg 提示
-	 * @param $data 数据
-	 * @param $extra 额外数据
-	 * @return string json数据
-	 */
-	function json($code, $msg='', $data='', $extra = '') {
-	    return json_encode(array('code' => $code, 'msg' => $msg, 'data' => $data, 'extra' => $extra));
+    /**
+     * @param $code 编码
+     * @param string $data 数据
+     * @param string $msg 信息
+     * @return string
+     */
+	function json($code, $data='' ,$msg='') {
+	    return json_encode(array('code' => $code, 'data' => $data, 'msg' => $msg,));
 	}
 
 	/**

@@ -60,6 +60,13 @@ return [
             'root' => public_path('uploads/Site'),
         ],
 
+        //广告上传图片
+        'advert_uplods' => [
+            'driver' => 'local',
+            'root' => public_path('uploads/Advert'),
+        ],
+
+
         's3' => [
             'driver' => 's3',
             'key' => 'your-key',

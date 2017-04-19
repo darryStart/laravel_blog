@@ -78,8 +78,7 @@
                             <span class="fa arrow">
                         </a>
                         <ul class="nav nav-second-level">
-                            <li><a href="{{url('admin/cate')}}">分类管理</a></li>
-                            <li><a href="">广告管理</a></li>
+                            <li><a href="{{url('admin/advert/index')}}">广告管理</a></li>
                         </ul>
                     </li>
                     <li class="submenu">
