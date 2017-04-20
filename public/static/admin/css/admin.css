@@ -36,3 +36,7 @@
 .long-td td{
     text-align: center
 }
+
+.state-td > span{
+    cursor: pointer;
+}

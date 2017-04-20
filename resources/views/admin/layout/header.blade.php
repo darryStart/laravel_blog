@@ -25,6 +25,7 @@
     <script src="{{asset('static/admin/layer/layer.js')}}"></script>
 
     {{--自定义静态--}}
+    <script src="{{asset('static/admin/js/admin.js')}}"></script>
     <link rel="stylesheet" href="{{asset('static/admin/css/admin.css')}}">
     @yield('header')
 </head>

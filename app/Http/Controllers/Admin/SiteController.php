@@ -114,7 +114,7 @@ class SiteController extends CommonController
             if($status){
                 return back()->with('success','更新成功！');
             }else{
-                return back()->with('errors','更新失败l！');
+                return back()->with('errors','更新失败！');
             }
         }else{
             $data = Site::find($site_id);

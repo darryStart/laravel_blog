@@ -13,12 +13,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => ['admi
     Route::get('site/site_del/{site_id}','SiteController@site_del')->where('site_id','[0-9]+');//网站配置项删除
 
 
-    Route::get('advert/index','AdvertController@index');//广告列表
+    Route::get('advert/index', ['as' => 'advert' , 'uses' => 'AdvertController@index']);//广告列表
     Route::match(['get','post'],'advert/add','AdvertController@add');//添加广告
-    Route::post('advert/state','AdvertController@state');//删除广告
-
-
-
+    Route::post('advert/state','AdvertController@state');//修改状态
+    Route::match(['get','post'],'advert/edit/{ad_id}','AdvertController@edit')->where('ad_id','[0-9]+');//编辑广告
+    Route::get('advert/del/{id}','AdvertController@del')->where('id','[0-9]+');//删除广告
+    
 
 //    Route::resource('cate','CategroyController');//分类资源路由
 });

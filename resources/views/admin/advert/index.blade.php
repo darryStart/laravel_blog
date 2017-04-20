@@ -53,18 +53,19 @@
                                     <td>{{$v->click_count}}</td>
                                     <td>@date('Y-m-d',$v->add_time)</td>
                                     <td>@date('Y-m-d',$v->update_time)</td>
-                                    <td>
+                                    <td class="state-td">
                                         @if($v->state == 6)
-                                            <span class="label label-primary class_open" about="{{$v->id}}" url="{{url('admin/advert/state')}}">开启</span>
+                                            <span class="label label-primary" about="{{$v->id}}" url="{{url('admin/advert/state')}}">开启</span>
                                         @else
-                                            <span class="label label-danger class_close" about="{{$v->id}}" url="{{url('admin/advert/state')}}">关闭</span>
+                                            <span class="label label-danger" about="{{$v->id}}" url="{{url('admin/advert/state')}}">关闭</span>
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="" class="btn btn-primary btn-mini">
+                                        <a href="{{url('admin/advert/edit',[$v->id])}}" class="btn btn-primary btn-mini">
                                             <i class="fa fa-pencil"></i> 编辑</a>&nbsp;&nbsp;
-                                        <a onClick="return confirm('是否删除此条记录')" href="{:U('del',array('id'=>$vo['id']))}" class="btn btn-danger">
-                                            <i class="fa fa-trash-o"></i> 删除</a>
+                                        <a href="javascript:;" onclick="return del({{$v->id}},'del');" class="btn btn-danger">
+                                            <i class="fa fa-trash-o"></i> 删除
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach

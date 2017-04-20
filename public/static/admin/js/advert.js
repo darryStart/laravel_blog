@@ -1,25 +1,20 @@
-$(function () {
-    var id = '';
-    var state = '';
-    var url = '';
-    $('.class_close').click(function () {
-        id = $(this).attr('about');
-        url = $(this).attr('url');
-        state = 6;
-        open_close($(this),id,state,url)
-    });
+var state = '';
+$(document).on('click','.label-danger',function(){
+    state = 6;
+    open_close($(this),state)
+})
 
-    $('.class_open').click(function () {
-        id = $(this).attr('about');
-        url = $(this).attr('url');
-        state = 8;
-        open_close($(this),id,state,url)
-    });
 
-});
+$(document).on('click','.label-primary',function(){
+    state = 8;
+    open_close($(this),state)
+})
 
-function open_close(_this,id,state,url) {
+
+function open_close(_this,state) {
     var token = $('input[name="_token"]').val();
+    var id = _this.attr('about');
+    var url = _this.attr('url');
     $.ajax({
         'url':url,
         'type':'post',
@@ -27,12 +22,10 @@ function open_close(_this,id,state,url) {
         'success':function (msg) {
             if(msg == '200'){
                 if(state == '8'){
-                    _this.addClass('label-danger').removeClass('label-primary');
-                    _this.addClass('class_close').removeClass('class_open');
+                    _this.removeClass('label-primary class_open').addClass('label-danger class_close');
                     _this.html('关闭');
                 }else{
-                    _this.addClass('label-primary').removeClass('label-danger');
-                    _this.addClass('class_open').removeClass('class_close');
+                    _this.removeClass('label-danger class_close').addClass('label-primary class_open');
                     _this.html('开启');
                 }
 

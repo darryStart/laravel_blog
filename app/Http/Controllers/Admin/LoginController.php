@@ -26,9 +26,9 @@ class LoginController extends CommonController {
             $first = Admin::where($login_condition)->first();
             if($first){
                 session(['admin_session' => $first]);
-                return json(200,'登录成功','index');
+                return json(200,'index','登录成功');
             }else{
-                return json(400,'账号或者密码错误');
+                return json(400,'','账号或者密码错误');
             }
         }else{
             session('admin_session');

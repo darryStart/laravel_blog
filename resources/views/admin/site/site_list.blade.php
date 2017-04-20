@@ -55,9 +55,11 @@
                                 </td>
                                 <td>
                                     <a href="{{url('admin/site/site_edit', $v->site_id)}}" class="btn btn-primary">
-                                        <i class="fa fa-pencil"></i> 编辑</a>&nbsp;&nbsp;
-                                    <a href="javascript:;" onclick="return del({{$v->site_id}});" class="btn btn-danger">
-                                        <i class="fa fa-trash-o"></i> 删除</a>
+                                        <i class="fa fa-pencil"></i> 编辑
+                                    </a>&nbsp;&nbsp;
+                                    <a href="javascript:;" onclick="return del({{$v->site_id}},'site_del');" class="btn btn-danger">
+                                        <i class="fa fa-trash-o"></i> 删除
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach
@@ -71,17 +73,6 @@
         </div>
     </div>
 
-@endsection
-
-@section('footer')
-    <script type="text/javascript">
-        function del(s_id){
-            layer.confirm('删除后将不可恢复，你确定要删除吗？', {icon: 3}, function(index){
-                layer.close(index);
-                window.location.href= '/admin/site/site_del/'+s_id;
-            });
-        }
-    </script>
 @endsection
 
 
