@@ -7,9 +7,12 @@
  */
 
 namespace App\Http\Controllers\Home;
+use App\Http\Model\Admin\Advert;
+
 class IndexController extends CommonController {
     public function index()
     {
-        return view('home.index.index');
+        $advert = Advert::all();
+        return view('home.index.index', array('advert' => $advert));
     }
 }

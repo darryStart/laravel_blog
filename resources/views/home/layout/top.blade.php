@@ -53,18 +53,26 @@
 </div>
 <div class="main_visual">
     <div class="flicking_con">
-        <a href="#">0</a><a href="#">1</a><a href="#">2</a><a href="#">3</a>
+        @foreach($advert as $v)
+        <a href="1">0</a><a href="2">1</a><a href="3">2</a><a href="4">3</a>
+        @endforeach
     </div>
     <div class="main_image">
         <ul>
-            <li><span class="img"><img src="http://ilunhui.cn/Uploads/carousel/2016-04-23/571b3650e1e24.jpg"
-                                       width="100%" height="400px"/></span></li>
-            <li><span class="img"><img src="http://ilunhui.cn/Uploads//carousel/2016-04-23/571b3173c9d12.jpg"
-                                       width="100%" height="400px"/></span></li>
-            <li><span class="img"><img src="http://ilunhui.cn/Uploads//carousel/2016-02-19/56c669a79cf36.jpg"
-                                       width="100%" height="400px"/></span></li>
-            <li><span class="img"><img src="http://ilunhui.cn/Uploads//carousel/2016-02-19/56c669b6eebe8.jpg"
-                                       width="100%" height="400px"/></span></li>
+            @foreach($advert as $v)
+            <li>
+                <span class="img">
+                    {{--<img src="http://ilunhui.cn/Uploads/carousel/2016-04-23/571b3650e1e24.jpg" width="100%" height="400px"/>--}}
+                    <img src="{{$v->img_url}}" width="100%" height="400px"/>
+                </span>
+            </li>
+            @endforeach
+            {{--<li><span class="img"><img src="http://ilunhui.cn/Uploads//carousel/2016-04-23/571b3173c9d12.jpg"--}}
+                                       {{--width="100%" height="400px"/></span></li>--}}
+            {{--<li><span class="img"><img src="http://ilunhui.cn/Uploads//carousel/2016-02-19/56c669a79cf36.jpg"--}}
+                                       {{--width="100%" height="400px"/></span></li>--}}
+            {{--<li><span class="img"><img src="http://ilunhui.cn/Uploads//carousel/2016-02-19/56c669b6eebe8.jpg"--}}
+                                       {{--width="100%" height="400px"/></span></li>--}}
         </ul>
         <a href="javascript:;" id="btn_prev"></a>
         <a href="javascript:;" id="btn_next"></a>
