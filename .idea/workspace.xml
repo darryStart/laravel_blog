@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c7372458-fb4c-432a-8bf2-88a78b295caa" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/static/admin/js/admin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/admin/advert/edit.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdvertController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdvertController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/LoginController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/LoginController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/SiteController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/SiteController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/static/admin/css/admin.css" afterPath="$PROJECT_DIR$/public/static/admin/css/admin.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/static/admin/js/advert.js" afterPath="$PROJECT_DIR$/public/static/admin/js/advert.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/advert/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/advert/index.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/layout/header.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/layout/header.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/site/site_list.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/site/site_list.blade.php" />
     </list>
     <ignored path="laravel_blog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -509,12 +498,20 @@
       <workItem from="1492477684376" duration="10286000" />
       <workItem from="1492564005445" duration="13725000" />
       <workItem from="1492651286239" duration="2823000" />
-      <workItem from="1492657535754" duration="8546000" />
+      <workItem from="1492657535754" duration="8607000" />
     </task>
+    <task id="LOCAL-00001" summary="advert&#10;">
+      <created>1492672230857</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1492672230857</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100164000" />
+    <option name="totallyTimeSpent" value="100225000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -578,6 +575,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="advert&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="advert&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
