@@ -53,8 +53,8 @@
 </div>
 <div class="main_visual">
     <div class="flicking_con">
-        @foreach($advert as $v)
-        <a href="1">0</a><a href="2">1</a><a href="3">2</a><a href="4">3</a>
+        @foreach ($advert as $k => $v)
+        <a href="#">{{$k+1}}</a>
         @endforeach
     </div>
     <div class="main_image">
