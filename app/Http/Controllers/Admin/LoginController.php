@@ -8,7 +8,7 @@
 namespace App\Http\Controllers\Admin;
 
 
-use App\Http\Model\Admin\Admin;
+use App\Http\Model\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 

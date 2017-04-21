@@ -19,7 +19,6 @@
             </div>
         </div>
     </div>
-    <br />
     <a href="{{url('admin/site/site_add')}}" class="btn btn-primary">添加配置</a>
     <br />
     <br />

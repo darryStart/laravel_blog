@@ -86,8 +86,8 @@
                             <span class="fa arrow">
                         </a>
                         <ul class="nav nav-second-level">
-                            <li><a href="/index.php?s=/Admin/article/indextype.html">文章分类</a></li>
-                            <li><a href="/index.php?s=/Admin/article/index.html">文章管理</a></li>
+                            <li><a href="{{url('admin/article/categroy_list')}}">文章分类</a></li>
+                            <li><a href="{{url('admin/article/article_list')}}">文章管理</a></li>
                         </ul>
                     </li>
                     <li class="submenu">

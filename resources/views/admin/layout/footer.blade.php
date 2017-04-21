@@ -1,5 +1,5 @@
 <div class="footer" style="position: fixed;z-index: 999;bottom: 0;width: 89%;">
-    <div class="pull-right">{{config('site.site_copyright','')}}</div>
+    <div class="pull-right" style="float: right;">{{config('site.site_copyright','')}}</div>
 </div>
 </div>
 </div>

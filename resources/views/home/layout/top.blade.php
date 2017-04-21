@@ -14,21 +14,15 @@
             <div class=" xl12 xs9 xm9 xb10 nav-navicon" id="header-demo">
                 <div class="xs8 xm6 xb8 padding-small">
                     <ul class="nav nav-menu nav-inline nav-big">
-                        <li class="l_active"><a href="/index.html">首页</a></li>
+                        <li class="l_active"><a href="{{url('/')}}">首页</a></li>
                         <li>
                             <a href="#">分类<span class="arrow"></span></a>
                             <ul class="drop-menu">
+                                @foreach($cate as $v)
                                 <li>
-                                    <a href="/Class/index/id/1.html">学习笔记</a>
+                                    <a href="{{url('categroy',$v->cate_id)}}">{{$v->cate_name}}</a>
                                 </li>
-                                <li>
-                                    <a href="/Class/index/id/2.html">生活随笔</a>
-                                </li>
-                                <li><a href="/Class/index/id/3.html">热点分享</a></li>
-                                <li><a href="/Class/index/id/4.html">.NET</a></li>
-                                <li><a href="/Class/index/id/5.html">PHP</a></li>
-                                <li><a href="/Class/index/id/6.html">Java</a></li>
-                                <li><a href="/Class/index/id/7.html">APICloud</a></li>
+                                @endforeach
                             </ul>
                         </li>
                         <li><a href="/said.html">说说</a></li>
@@ -53,33 +47,21 @@
 </div>
 <div class="main_visual">
     <div class="flicking_con">
-        @foreach($advert as $v)
-        <a href="1">0</a><a href="2">1</a><a href="3">2</a><a href="4">3</a>
+        @foreach($advert as $k => $v)
+            <a>{{$k}}</a>
         @endforeach
     </div>
     <div class="main_image">
         <ul>
             @foreach($advert as $v)
-            <li>
-                <span class="img">
-                    {{--<img src="http://ilunhui.cn/Uploads/carousel/2016-04-23/571b3650e1e24.jpg" width="100%" height="400px"/>--}}
-                    <img src="{{$v->img_url}}" width="100%" height="400px"/>
-                </span>
-            </li>
+                <li><span class="img"><img src="{{$v->img_url}}"  width="100%" height="400px"/></span></li>
             @endforeach
-            {{--<li><span class="img"><img src="http://ilunhui.cn/Uploads//carousel/2016-04-23/571b3173c9d12.jpg"--}}
-                                       {{--width="100%" height="400px"/></span></li>--}}
-            {{--<li><span class="img"><img src="http://ilunhui.cn/Uploads//carousel/2016-02-19/56c669a79cf36.jpg"--}}
-                                       {{--width="100%" height="400px"/></span></li>--}}
-            {{--<li><span class="img"><img src="http://ilunhui.cn/Uploads//carousel/2016-02-19/56c669b6eebe8.jpg"--}}
-                                       {{--width="100%" height="400px"/></span></li>--}}
         </ul>
         <a href="javascript:;" id="btn_prev"></a>
         <a href="javascript:;" id="btn_next"></a>
     </div>
 </div>
 <br/>
-
 
 
 

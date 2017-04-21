@@ -73,6 +73,13 @@
 
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
+                                <label class="col-sm-2 control-label">广告排序</label>
+                                <div class="col-sm-6">
+                                    <input type="text" name="order_num" placeholder="输入广告链接" class="form-control" value="{{old('order_num')}}"></div>
+                            </div>
+
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
                                 <label class="col-sm-2 control-label">广告图片</label>
                                 <div class="col-sm-6">
                                     <div class="input-file-wrapper">

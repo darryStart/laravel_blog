@@ -15,7 +15,6 @@
                 </div>
             </div>
         </div>
-        <br />
         <a href="{{url('admin/advert/add')}}" class="btn btn-primary">添加广告</a>
         <br />
         <br />
@@ -29,11 +28,11 @@
                         <table class="table table-bordered">
                             <thead>
                             <tr class="long-tr">
-                                <th>编号</th>
                                 <th>图片</th>
                                 <th>标题</th>
                                 <th>关键字</th>
                                 <th>链接</th>
+                                <th>排序</th>
                                 <th>点击次数</th>
                                 <th>添加时间</th>
                                 <th>更新时间</th>
@@ -45,11 +44,11 @@
                             {{csrf_field()}}
                             @foreach($data as $v)
                                 <tr class="long-td">
-                                    <td>{{$v->id}}</td>
                                     <td><a href="/{{$v->img_url}}" target="_blank"><img src="/{{$v->img_url}}" style="width: 100px;height: 60px" /></a></td>
                                     <td>{{$v->title}}</td>
                                     <td>{{$v->desc}}</td>
                                     <td>{{$v->link}}</td>
+                                    <td>{{$v->order_num}}</td>
                                     <td>{{$v->click_count}}</td>
                                     <td>@date('Y-m-d',$v->add_time)</td>
                                     <td>@date('Y-m-d',$v->update_time)</td>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Model\Admin\Advert;
+use App\Http\Model\Advert;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -28,12 +28,15 @@ class AdvertController extends Controller
         if($input = $request->except('_token')){
             $rules = array(
                 'title' => 'required',
-                'img' => 'required'
+                'img' => 'required',
+                'order_num' => 'required|integer'
             );
 
             $msg = array(
-                'title.required' => '广告标题必填',
-                'img.required' => '必须上传图片'
+                'title.required' => '广告标题必填!',
+                'img.required' => '必须上传图片!',
+                'order_num.required' => '排序必填！',
+                'order_num.integer' => '排序必须是正整数！'
             );
 
             $validator = Validator::make($input,$rules,$msg);
@@ -55,7 +58,8 @@ class AdvertController extends Controller
                             'update_time' => time(),
                             'state' => $input['state'],
                             'img_url' => $url,
-                            'link' => $input['link']
+                            'link' => $input['link'],
+                            'order_num' => $input['order_num']
                         );
                         $status = Advert::insert($data);
                         if($status){
@@ -103,10 +107,13 @@ class AdvertController extends Controller
         if($input = $request->except('_token')){
             $rules = array(
                 'title' => 'required',
+                'order_num' => 'required|integer'
             );
 
             $msg = array(
                 'title.required' => '广告标题必填',
+                'order_num.required' => '排序必填！',
+                'order_num.integer' => '排序必须是正整数！'
             );
             $validator = Validator::make($input,$rules,$msg);
             if($validator->passes()){
@@ -116,7 +123,8 @@ class AdvertController extends Controller
                     'desc' => $input['desc'],
                     'update_time' => time(),
                     'state' => $input['state'],
-                    'link' => $input['link']
+                    'link' => $input['link'],
+                    'order_num' => $input['order_num']
                 );
 
                 //修改图片
