@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Model\Article;
 use App\Http\Model\ArticleCate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -75,11 +76,13 @@ class ArticleController extends CommonController
 
 	//文章
 	public function article_list(){
-		return view('admin.article.article_list');
+        $data = Article::orderBy('art_id', 'desc')->paginate(7);
+		return view('admin.article.article_list', ['data' => $data]);
 	}
 
 	public function article_add(){
-		return view('admin.article.article_add');
+        $cate = ArticleCate::get();
+		return view('admin.article.article_add', ['cate' => $cate]);
 	}
 
 	public function article_edit($id){
