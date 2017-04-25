@@ -54,9 +54,9 @@
                                     <td>@date('Y-m-d',$v->create_time)</td>
                                     <td>@date('Y-m-d',$v->update_time)</td>
                                     <td>
-                                        @if($v->art_type == '6')
+                                        @if($v->art_type == '8')
                                             <span class="label label-info">转载</span>
-                                        @elseif($v->art_type == '8')
+                                        @elseif($v->art_type == '6')
                                             <span class="label label-primary">原创</span>
                                         @endif
                                     </td>

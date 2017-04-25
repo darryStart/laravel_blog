@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Model\Admin;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
@@ -59,5 +60,14 @@ class IndexController extends CommonController
         }else{
             return view('admin.edit_pwd');
         }
+    }
+
+    /**
+     * 清理缓存
+     */
+    public function clear()
+    {
+        Cache::flush();
+        return back();
     }
 }

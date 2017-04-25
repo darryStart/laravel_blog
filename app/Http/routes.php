@@ -5,9 +5,10 @@
 Route::any('admin/login',['as' => 'admin_login', 'uses' => 'admin\LoginController@login']);//登录
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => ['admin.login']],function (){
-    Route::get('index','IndexController@index');//首页
+    Route::get('index','IndexController@index')->name('_index');//首页
     Route::get('logout','LoginController@logout');//退出
     Route::match(['get','post'],'edit_pwd','IndexController@edit_pwd');//修改密码
+    Route::any('clear','IndexController@clear');//清理缓存
 
     Route::match(['get','post'],'site/site',['as' => 'site', 'uses' => 'SiteController@site']);//网站设置
     Route::match(['get','post'],'site/site_add','SiteController@site_add');//添加网站配置项
