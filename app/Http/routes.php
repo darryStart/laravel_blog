@@ -3,6 +3,7 @@
 
 //后台路由
 Route::any('admin/login',['as' => 'admin_login', 'uses' => 'admin\LoginController@login']);//登录
+
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => ['admin.login']],function (){
     Route::get('index','IndexController@index');//首页
     Route::get('logout','LoginController@logout');//退出
@@ -24,8 +25,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => ['admi
 
     Route::get('article/article_list', ['as' => 'article' , 'uses' => 'ArticleController@article_list']);//文章列表
     Route::match(['get','post'], 'article/article_add', 'ArticleController@article_add');//添加文章
-    Route::match(['get','post'], 'article/article_edit/{$id}', 'ArticleController@article_edit')->where('id','[0-9]+');//编辑文章
-    Route::get('article/article_del/{$id}', 'ArticleController@article_del')->where('id','[0-9]+');//删除文章
+    Route::match(['get','post'], 'article/article_edit/{id}', 'ArticleController@article_edit')->where('id','[0-9]+');//编辑文章
+    Route::get('article/article_del/{id}', 'ArticleController@article_del')->where('id','[0-9]+');//删除文章
 
     Route::get('article/categroy_list' ,['as' => 'categroy' , 'uses' => 'ArticleController@categroy_list']);//文章分类列表
     Route::match(['get','post'], 'article/categroy_add', 'ArticleController@categroy_add');//添加文章分类

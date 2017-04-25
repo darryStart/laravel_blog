@@ -60,7 +60,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{url('admin/advert/edit',[$v->id])}}" class="btn btn-primary btn-mini">
+                                        <a href="{{url('admin/advert/edit',$v->id)}}" class="btn btn-primary btn-mini">
                                             <i class="fa fa-pencil"></i> 编辑</a>&nbsp;&nbsp;
                                         <a href="javascript:;" onclick="return del({{$v->id}},'del');" class="btn btn-danger">
                                             <i class="fa fa-trash-o"></i> 删除

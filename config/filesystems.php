@@ -66,6 +66,11 @@ return [
             'root' => public_path('uploads/Advert'),
         ],
 
+        //文章上传图片
+        'article_uplods' => [
+            'driver' => 'local',
+            'root' => public_path('uploads/Article'),
+        ],
 
         's3' => [
             'driver' => 's3',

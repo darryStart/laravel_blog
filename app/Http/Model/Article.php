@@ -8,4 +8,9 @@ class Article extends Model {
     protected $primaryKey = 'art_id';
     public $timestamps = false;
     protected $guarded = [];
+
+    public function art_cate()
+    {
+        return $this->belongsTo('App\Http\Model\ArticleCate','cate_id');
+    }
 }

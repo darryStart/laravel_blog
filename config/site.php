@@ -1,4 +1,4 @@
-<?php  return   array (
+<?php  return array (
   'site_name' => '忆犹博客',
   'site_url' => '127.0.0.1',
   'site_seo' => '忆犹,忆犹博客,博客,技术分享,分享',

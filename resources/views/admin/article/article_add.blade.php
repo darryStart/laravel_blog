@@ -1,4 +1,8 @@
 @extends('admin.layout.base')
+@section('header')
+    <link rel="stylesheet" href="{{asset('static/admin/css/site.css')}}">
+    <link rel="stylesheet" href="{{asset('static/Common/js/uploadify/uploadify.css')}}">
+@endsection
 @section('body')
     <div class="wrapper wrapper-content">
         <div class="row">
@@ -18,28 +22,39 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <div class="ibox-tools">
-                            <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                            </a>
-                        </div>
+                    <div class="error_notice">
+                        @if(count($errors) > 0)
+                            <div class="mark">
+                                @if(is_object($errors))
+                                    @foreach($errors->all() as $error)
+                                        <li class="error_notice_p">{{$error}}</li>
+                                    @endforeach
+                                @else
+                                    <li class="error_notice_p">{{$errors}}</li>
+                                @endif
+                            </div>
+                        @elseif(session('success'))
+                            <div class="mark">
+                                <li class="success_notice_p">{{session('success')}}</li>
+                            </div>
+                        @endif
                     </div>
                     <div class="ibox-content">
                         <form class="form-horizontal" method="post" name="basic_validate" id="signupForm" enctype="multipart/form-data">
+                            {{csrf_field()}}
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">文章标题</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="a_title" id="a_title" placeholder="输入文章标题" class="form-control">
+                                    <input type="text" name="art_title" placeholder="输入文章标题" class="form-control" value="{{old('art_title')}}">
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">所属分类</label>
                                 <div class="col-sm-6">
-                                    <select id="cate_id" name="cate_id" class="form-control m-b chosen-select">
+                                    <select name="cate_id" class="form-control m-b chosen-select">
                                         @foreach($cate as $v)
-                                            <option value="{{$v->cate_id}}">{{$v->cate_name}}</option>
+                                            <option value="{{$v->cate_id}}" @if(old('cate_id') == $v->cate_id) selected="selected" @endif>{{$v->cate_name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -48,26 +63,28 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">关键字</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="a_keyword" id="a_keyword" placeholder="输入文章关键字" class="form-control">
+                                    <input type="text" name="art_keyword"  placeholder="输入文章关键字" value="{{old('art_keyword')}}" class="form-control">
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">描述</label>
                                 <div class="col-sm-6">
-                                    <textarea type="text" rows="5" name="a_remark" id="a_remark" placeholder="输入文章描述" class="form-control"></textarea>
+                                    <textarea type="text" rows="5" name="art_remark" placeholder="输入文章描述" class="form-control">{{old('art_remark')}}</textarea>
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">文章封面 </label>
                                 <div class="col-sm-6">
-                                    <div style="width: 200px; height: 110px; float: left;">
-                                        <input type="hidden" name="photo" value="" id="data_photo" />
-                                        <input id="photo_file" name="photo_file" type="file" multiple="true" value="" />
-                                    </div>
-                                    <div style="height: 110px; float: left;">
-                                        <img id="upload_img" src="__ROOT__/Uploads/{$detail.photo}" onerror="this.src='__PUBLIC__/Admin/img/no_img.jpg'" style="height: 100px" />
+                                    <div class="input-file-wrapper">
+                                        <label>
+                                            <input type="file" name="art_face" class="form-control"/>
+                                            <span class="custorm-style">
+                                                     <span class="left-button">上传图片</span>
+                                                     <div class="right-text rightText">{{old('art_face')}}</div>
+                                                 </span>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +92,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">文章正文</label>
                                 <div class="col-sm-10">
-                                    <script type="text/plain" id="editor" name="a_content" style="width:90%;height:300px;"></script>
+                                    <script type="text/plain" id="editor" name="art_content" style="width:80%;height:400px;">{!!  old('art_content') !!}</script>
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
@@ -83,8 +100,8 @@
                                 <label class="col-sm-2 control-label">是否推荐</label>
                                 <div class="col-sm-6">
                                     <div class="radio i-checks">
-                                        <input type="radio" name='a_red' value="1" checked="checked" />是&nbsp;&nbsp;
-                                        <input type="radio" name='a_red' value="0" />否
+                                        <input type="radio" name='art_red' value="6" @if(old('art_red') == '6' || old('art_red') == '') checked="checked" @endif/>是&nbsp;&nbsp;
+                                        <input type="radio" name='art_red' value="8" @if(old('art_red') == '8') checked="checked" @endif/>否
                                     </div>
                                 </div>
                             </div>
@@ -93,8 +110,8 @@
                                 <label class="col-sm-2 control-label">文章类型</label>
                                 <div class="col-sm-6">
                                     <div class="radio i-checks">
-                                        <input type="radio" name='a_type' value="1" checked="checked" />原创&nbsp;&nbsp;
-                                        <input type="radio" name='a_type' value="0" />转载
+                                        <input type="radio" name='art_type' value="6" @if(old('art_type') == '6' || old('art_type') == '') checked="checked" @endif/>原创&nbsp;&nbsp;
+                                        <input type="radio" name='art_type' value="8" @if(old('art_type') == '8') checked="checked" @endif/>转载
                                     </div>
                                 </div>
                             </div>
@@ -102,21 +119,21 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">访问量</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="a_views" id="a_views" value="1" class="form-control">
+                                    <input type="text" name="art_views" value="{{old('art_views',1)}}" class="form-control">
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">作者</label>
                                 <div class="col-sm-6">
-                                    <input type="text" name="a_writer" id="a_writer" value="{$admin['username']}" class="form-control">
+                                    <input type="text" name="art_writer" value="{{old('art_writer',session('admin_session.username'))}}" class="form-control">
                                 </div>
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <div class="col-sm-4 col-sm-offset-2">
                                     <button class="btn btn-primary" type="submit">保存内容</button>
-                                    <a class="btn btn-danger" href="{:U('Advert/index')}">取消</a>
+                                    <a class="btn btn-danger" href="{{url('admin/article/article_add')}}">取消</a>
                                 </div>
                             </div>
                         </form>
@@ -125,5 +142,22 @@
             </div>
         </div>
     </div>
-    </div>
+@endsection
+@section('footer')
+    <script type="text/javascript" charset="utf-8" src="{{asset('static/admin/js/site.js')}}"></script>
+    <script type="text/javascript" charset="utf-8" src="{{asset('static/Common/Ueditor/ueditor.config.js')}}"></script>
+    <script type="text/javascript" charset="utf-8" src="{{asset('static/Common/Ueditor/ueditor.all.min.js')}}"></script>
+    <script type="text/javascript" charset="utf-8" src="{{asset('static/Common/js/uploadify/jquery.uploadify.min.js')}}"></script>
+
+    <script type="text/javascript">
+        var ue = UE.getEditor('editor', {
+            toolbars: [
+                ['fullscreen','source','undo','redo','indent','bold','italic','underline','fontborder','snapscreen','print','preview','link','unlink','insertrow','insertcol','mergeright','mergedown','deleterow','deletecol','splittorows','splittocols','splittocells','fontfamily','fontsize','simpleupload','insertimage','spechars','searchreplace','justifyleft','justifyright','justifycenter'],
+                ['justifyjustify','forecolor','backcolor','attachment','imagecenter','wordimage','inserttable','strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc']
+            ],
+            iframeCssUrl: '/static/Common/Ueditor/themes/iframe.css',// 引入css
+            autoHeightEnabled: true,
+            autoFloatEnabled: true
+        });
+    </script>
 @endsection
