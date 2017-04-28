@@ -2,18 +2,18 @@
 
 
 //后台路由
-Route::any('admin/login',['as' => 'admin_login', 'uses' => 'admin\LoginController@login']);//登录
+Route::any('admin/login', 'admin\LoginController@login')->name('admin_login');//登录
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => ['admin.login']],function (){
-    Route::get('index','IndexController@index')->name('_index');//首页
-    Route::get('logout','LoginController@logout');//退出
-    Route::match(['get','post'],'edit_pwd','IndexController@edit_pwd');//修改密码
-    Route::any('clear','IndexController@clear');//清理缓存
+    Route::get('index','IndexController@index')->name('admin_index');//首页
+    Route::get('logout','LoginController@logout')->name('admin_logout');//退出
+    Route::match(['get','post'],'edit_pwd','IndexController@edit_pwd')->name('admin_pwd');//修改密码
+    Route::any('clear','IndexController@clear')->name('clear');//清理缓存
 
-    Route::match(['get','post'],'site/site',['as' => 'site', 'uses' => 'SiteController@site']);//网站设置
-    Route::match(['get','post'],'site/site_add','SiteController@site_add');//添加网站配置项
-    Route::get('site/site_list',['as' => 'site_list', 'uses' => 'SiteController@site_list']);//网站配置项列表
-    Route::match(['get','post'],'site/site_edit/{site_id}','SiteController@site_edit')->where('site_id','[0-9]+');//编辑配置项
+    Route::match(['get','post'],'site/site','SiteController@site')->name('site');//网站设置
+    Route::match(['get','post'],'site/site_add','SiteController@site_add')->name('site_add');//添加网站配置项
+    Route::get('site/site_list','SiteController@site_list')->name('site_list');//网站配置项列表
+    Route::match(['get','post'],'site/site_edit/{site_id}','SiteController@site_edit')->where('site_id','[0-9]+')->name('site_edit');//编辑配置项
     Route::get('site/site_del/{site_id}','SiteController@site_del')->where('site_id','[0-9]+');//网站配置项删除
 
 

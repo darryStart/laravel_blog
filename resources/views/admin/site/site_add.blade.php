@@ -7,8 +7,8 @@
                     <ul class="list-group">
                         <li class="list-group-item">
                             <p class="text-success"><a href="{{url('admin/index')}}" title="返回首页" class="tip-bottom"><i class="fa fa-home"></i> 首页</a> /
-                                <a href="{{url('admin/site/site')}}" class="tip-bottom">网站管理</a> /
-                                <a href="{{url('admin/site/site_add')}}" class="tip-bottom">添加配置</a>
+                                <a href="{{route('site_list')}}" class="tip-bottom">配置列表</a> /
+                                <a href="{{route('site_add')}}" class="tip-bottom">添加配置</a>
                             </p>
                         </li>
                     </ul>

@@ -54,24 +54,29 @@
         <h4>
             <div class="tag-ul">
                 @foreach($label as $v)
-                    @if($v->art_id % 6 == '0')
-                        <a class="button button-little bg-green shake-hover" href="{{url('article',$v->art_id)}}">{{$v->art_keyword}}</a>
-                    @endif
-                    @if($v->art_id % 6 == '1')
-                        <a class="button button-little bg-main shake-hover" href="{{url('article',$v->art_id)}}">{{$v->art_keyword}}</a>
-                    @endif
-                    @if($v->art_id % 6 == '2')
-                        <a class="button button-little bg-sub shake-hover" href="{{url('article',$v->art_id)}}">{{$v->art_keyword}}</a>
-                    @endif
-                    @if($v->art_id % 6 == '3')
-                        <a class="button button-little bg-red shake-hover" href="{{url('article',$v->art_id)}}">{{$v->art_keyword}}</a>
-                    @endif
-                    @if($v->art_id % 6 == '4')
-                        <a class="button button-little bg-yellow shake-hover" href="{{url('article',$v->art_id)}}">{{$v->art_keyword}}</a>
-                    @endif
-                    @if($v->art_id % 6 == '5')
-                        <a class="button button-little bg-blue shake-hover" href="{{url('article',$v->art_id)}}">{{$v->art_keyword}}</a>
-                    @endif
+                    @switch($v->art_id % 6)
+                        @case(0)
+                            <a class="button button-little bg-green shake-hover" href="{{url('article',$v->art_id)}}">{{$v->art_keyword}}</a>
+                        @break
+                        @case(1)
+                            <a class="button button-little bg-main shake-hover" href="{{url('article',$v->art_id)}}">{{$v->art_keyword}}</a>
+                        @break
+                        @case(2)
+                            <a class="button button-little bg-sub shake-hover" href="{{url('article',$v->art_id)}}">{{$v->art_keyword}}</a>
+                        @break
+                        @case(3)
+                            <a class="button button-little bg-red shake-hover" href="{{url('article',$v->art_id)}}">{{$v->art_keyword}}</a>
+                        @break
+                        @case(4)
+                            <a class="button button-little bg-yellow shake-hover" href="{{url('article',$v->art_id)}}">{{$v->art_keyword}}</a>
+                        @break
+                        @case(5)
+                            <a class="button button-little bg-blue shake-hover" href="{{url('article',$v->art_id)}}">{{$v->art_keyword}}</a>
+                        @break
+                        @default
+                            <a class="button button-little bg-green shake-hover" href="{{url('article',$v->art_id)}}">{{$v->art_keyword}}</a>
+                        @break
+                    @endswitch
                 @endforeach
             </div>
         </h4>

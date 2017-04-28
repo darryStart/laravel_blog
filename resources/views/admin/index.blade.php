@@ -6,7 +6,7 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <span class="label label-success pull-right">月</span>
-                    <h5>收入</h5>
+                    <h5>收入{{Request::path()}}</h5>
                 </div>
                 <div class="ibox-content">
                     <h1 class="no-margins">40 886,200</h1>

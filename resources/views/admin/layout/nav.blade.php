@@ -36,20 +36,45 @@
                     </div>
                 </li>
                 <li>
-                    <li class="active">
-                        <a href="{{url('/')}}" target="_blank">
+                    <li @if(route('admin_index',[],false) == '/'.Request::path()) class="active" @endif>
+                        <a href="{{route('admin_index') }}">
                             <i class="icon fa fa-home"></i><span>首页</span>
                             <span class="label label-danger pull-right">NEW</span>
                         </a>
                     </li>
 
-                    <li class="submenu">
+                    <li class="submenu
+                        @if(
+                            ('/'.Request::path() ==  route('site',[],false))
+                            ||
+                            ('/'.Request::path() == route('site_add',[],false))
+                            ||
+                            ('/'.Request::path() == route('site_list',[],false))
+                            ||
+                            ('/'.Request::path() == route('site_edit',['site_id'>0],false))
+                        )
+                            active
+                        @endif">
                         <a><i class="icon fa fa-envelope"></i> <span>网站管理</span>
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
-                            <li><a href="{{url('admin/site/site')}}">网站设置</a></li>
-                            <li><a href="{{url('admin/site/site_list')}}">设置列表</a></li>
+                            <li
+                            @if('/'.Request::path() ==  route('site',[],false))
+                                class="active"
+                            @endif
+                            ><a href="{{url('admin/site/site')}}">网站设置</a></li>
+                            <li
+                            @if(
+                                ('/'.Request::path() ==  route('site_list',[],false))
+                                ||
+                                ('/'.Request::path() ==  route('site_add',[],false))
+                                ||
+                                ('/'.Request::path() ==  route('site_edit',['site_id'>0],false))
+                            )
+                            class="active"
+                            @endif
+                            ><a href="{{url('admin/site/site_list')}}">设置列表</a></li>
                         </ul>
                     </li>
                     <li class="submenu">
@@ -73,17 +98,17 @@
                             <li><a href="/index.php?s=/Admin/news/newscate.html">新闻分类</a></li>
                         </ul>
                     </li>
-                    <li class="submenu">
+                    <li class="submenu @if(Request::path() == 'admin/advert/index') active @endif">
                         <a href="#"><i class="icon fa fa-cloud"></i> <span>广告管理</span>
-                            <span class="fa arrow">
+                            <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
-                            <li><a href="{{url('admin/advert/index')}}">广告管理</a></li>
+                            <li @if(Request::path() == 'admin/advert/index') class="active" @endif><a href="{{url('admin/advert/index')}}">广告管理</a></li>
                         </ul>
                     </li>
                     <li class="submenu">
                         <a href="#"><i class="icon fa fa-paste"></i> <span>文章管理</span>
-                            <span class="fa arrow">
+                            <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
                             <li><a href="{{url('admin/article/categroy_list')}}">文章分类</a></li>
@@ -92,7 +117,7 @@
                     </li>
                     <li class="submenu">
                         <a href="#"><i class="icon fa fa-comments"></i> <span>说说管理</span>
-                            <span class="fa arrow">
+                            <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
                             <li><a href="/index.php?s=/Admin/said/index.html">说说管理</a></li>
@@ -100,7 +125,7 @@
                     </li>
                     <li class="submenu">
                         <a href="#"><i class="icon fa fa-thumbs-up"></i> <span>留言管理</span>
-                            <span class="fa arrow">
+                            <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
                             <li><a href="/index.php?s=/Admin/liuyan/index.html">留言管理</a></li>
@@ -126,5 +151,7 @@
                 });
             });
         });
+
+
     </script>
     <div id="page-wrapper" class="gray-bg dashbard-1">
