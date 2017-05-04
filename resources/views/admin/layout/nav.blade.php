@@ -36,7 +36,7 @@
                     </div>
                 </li>
                 <li>
-                    <li @if(route('admin_index',[],false) == '/'.Request::path()) class="active" @endif>
+                    <li @if(strstr(Request::fullUrl(),route('admin_index'))) class="active" @endif>
                         <a href="{{route('admin_index') }}">
                             <i class="icon fa fa-home"></i><span>首页</span>
                             <span class="label label-danger pull-right">NEW</span>
@@ -44,15 +44,7 @@
                     </li>
 
                     <li class="submenu
-                        @if(
-                            ('/'.Request::path() ==  route('site',[],false))
-                            ||
-                            ('/'.Request::path() == route('site_add',[],false))
-                            ||
-                            ('/'.Request::path() == route('site_list',[],false))
-                            ||
-                            ('/'.Request::path() == route('site_edit',['site_id'>0],false))
-                        )
+                        @if(strstr(Request::fullUrl(),route('site')) or strstr(Request::fullUrl(),route('site_add')) or strstr(Request::fullUrl(),route('site_list')) or strstr(Request::fullUrl(),route('site_edit')))
                             active
                         @endif">
                         <a><i class="icon fa fa-envelope"></i> <span>网站管理</span>
@@ -60,19 +52,13 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li
-                            @if('/'.Request::path() ==  route('site',[],false))
+                            @if(strstr(Request::fullUrl(),route('site')))
                                 class="active"
                             @endif
-                            ><a href="{{url('admin/site/site')}}">网站设置</a></li>
+                            ><a href="{{url('admin/site/index')}}">网站设置</a></li>
                             <li
-                            @if(
-                                ('/'.Request::path() ==  route('site_list',[],false))
-                                ||
-                                ('/'.Request::path() ==  route('site_add',[],false))
-                                ||
-                                ('/'.Request::path() ==  route('site_edit',['site_id'>0],false))
-                            )
-                            class="active"
+                            @if(strstr(Request::fullUrl(),route('site_add')) or strstr(Request::fullUrl(),route('site_list')) or strstr(Request::fullUrl(),route('site_edit')))
+                             class="active"
                             @endif
                             ><a href="{{url('admin/site/site_list')}}">设置列表</a></li>
                         </ul>
@@ -98,21 +84,21 @@
                             <li><a href="/index.php?s=/Admin/news/newscate.html">新闻分类</a></li>
                         </ul>
                     </li>
-                    <li class="submenu @if(Request::path() == 'admin/advert/index') active @endif">
+                    <li class="submenu @if(strstr(Request::fullUrl(),route('advert'))  or strstr(Request::fullUrl(),route('advert_add')) or strstr(Request::fullUrl(),route('advert_edit'))) active @endif">
                         <a href="#"><i class="icon fa fa-cloud"></i> <span>广告管理</span>
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
-                            <li @if(Request::path() == 'admin/advert/index') class="active" @endif><a href="{{url('admin/advert/index')}}">广告管理</a></li>
+                            <li @if(strstr(Request::fullUrl(),route('advert'))  or strstr(Request::fullUrl(),route('advert_add')) or strstr(Request::fullUrl(),route('advert_edit'))) class="active" @endif><a href="{{url('admin/advert/index')}}">广告管理</a></li>
                         </ul>
                     </li>
-                    <li class="submenu">
+                    <li class="submenu @if(strstr(Request::fullUrl(),route('article')) or strstr(Request::fullUrl(),route('article_add')) or strstr(Request::fullUrl(),route('article_edit')) or strstr(Request::fullUrl(),route('categroy')) or strstr(Request::fullUrl(),route('categroy_add')) or strstr(Request::fullUrl(),route('categroy_edit'))) active @endif">
                         <a href="#"><i class="icon fa fa-paste"></i> <span>文章管理</span>
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
-                            <li><a href="{{url('admin/article/categroy_list')}}">文章分类</a></li>
-                            <li><a href="{{url('admin/article/article_list')}}">文章管理</a></li>
+                            <li @if(strstr(Request::fullUrl(),route('categroy')) or strstr(Request::fullUrl(),route('categroy_add')) or strstr(Request::fullUrl(),route('categroy_edit'))) class="active" @endif ><a href="{{url('admin/article/categroy_list')}}">文章分类</a></li>
+                            <li @if(strstr(Request::fullUrl(),route('article')) or strstr(Request::fullUrl(),route('article_add')) or strstr(Request::fullUrl(),route('article_edit'))) class="active" @endif><a href="{{url('admin/article/article_list')}}">文章管理</a></li>
                         </ul>
                     </li>
                     <li class="submenu">

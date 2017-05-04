@@ -15,7 +15,7 @@ class SiteController extends CommonController
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
-    public function site(Request $request)
+    public function index(Request $request)
     {
         if( $input = $request->except('_token') ){
             $files = $request->allFiles();//获取全部文件
@@ -56,7 +56,7 @@ class SiteController extends CommonController
 
         }else{
             $site_data = Site::all();
-            return view('admin.site.site',array('site_data' => $site_data));
+            return view('admin.site.index',array('site_data' => $site_data));
         }
     }
 

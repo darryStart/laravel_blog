@@ -18,10 +18,6 @@
                 </div>
             </div>
         </div>
-        <br />
-        <a href="{:U('Advert/add')}" class="btn btn-primary">添加广告</a>
-        <br />
-        <br />
         <div class="row">
             <div class="col-sm-12">
                 <div class="ibox float-e-margins">

@@ -25,7 +25,6 @@ class AppServiceProvider extends ServiceProvider
         });
 
         //switch
-
         Blade::extend(function($value, $compiler){
             $value = preg_replace('/(\s*)@switch\((.*)\)(?=\s)/', '$1<?php switch($2):', $value);
             $value = preg_replace('/(\s*)@endswitch(?=\s)/', '$1endswitch; ?>', $value);
