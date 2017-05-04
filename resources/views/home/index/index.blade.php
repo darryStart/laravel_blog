@@ -50,7 +50,7 @@
                     @endforeach
                 </div>
                 <hr />
-                <div class="pages" style=" text-align: right;">
+                <div class="pages">
                     {!! $new_art->links() !!}
                 </div>
         </div>

@@ -1,8 +1,11 @@
+.pages{
+    text-align: right;
+}
 .pages a,.pages span {
     display:inline-block;
-    padding:4px 7px;
+    padding:4px 11px;
     margin:0 2px;
-    border:1px solid #D5D4D4;
+    border:1px solid #00AAEE;
     -webkit-border-radius:1px;
     -moz-border-radius:1px;
     border-radius:1px;
@@ -22,6 +25,14 @@
     font-weight:700;
     border-color:#00AAEE;
 }
+
+.pagination .active {
+    background: #00AAEE;
+    color: #FFF;
+    font-weight: 700;
+    border-color: #00AAEE;
+}
+
 
 .long-tr th{
 	text-align: center
