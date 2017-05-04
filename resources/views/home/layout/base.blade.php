@@ -4,8 +4,8 @@
     <div class="">
         <ul class="bread">
             <h4>
-                <li><a href="#" class="icon-home"> 首页</a> </li>
-                <li><a href="#">@yield('title')</li></a>
+                <li><a href="/" class="icon-home"> 首页</a> </li>
+                <li><a>@yield('title')</li></a>
             </h4>
         </ul>
     </div>

@@ -47,7 +47,7 @@ class AdvertController extends Controller
                     $realPath = $file->getRealPath();
 
                     $file_name   = date('Y-m-d-H-i-s').'-'.uniqid().'.'.$ext;
-                    $url  = 'uploads/Advert/'.$file_name;
+                    $url  = '/uploads/Advert/'.$file_name;
 
                     $bool = Storage::disk('advert_uplods')->put($file_name,file_get_contents($realPath));
                     if($bool){
@@ -139,7 +139,7 @@ class AdvertController extends Controller
 
                         $bool = Storage::disk('advert_uplods')->put($file_name,file_get_contents($realPath));
                         if($bool){
-                            $data['img_url'] = 'uploads/Advert/'.$file_name;
+                            $data['img_url'] = '/uploads/Advert/'.$file_name;
                         }else{
                             return back()->with('errors','图片上传失败！');
                         }

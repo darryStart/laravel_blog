@@ -126,7 +126,7 @@ class ArticleController extends CommonController
                     if($bool){
                         $input['create_time'] = time();
                         $input['update_time'] = time();
-                        $input['art_face'] = 'uploads/Article/'.$file_name;
+                        $input['art_face'] = '/uploads/Article/'.$file_name;
 
                         if(Article::create($input)){
                             return back()->with('success','文章添加成功！');
@@ -156,8 +156,6 @@ class ArticleController extends CommonController
      */
 	public function article_edit($id,Request $request){
         if($input = $request->except('_token')){
-
-
             $rules = array(
                 'art_title' => 'required',
                 'art_keyword' => 'required',
@@ -180,21 +178,18 @@ class ArticleController extends CommonController
 
                 //上传图片
                 $file = $request->file('art_face');
-                if($file->isValid()){
+                if($file && $file->isValid()){
                     $ext = $file->getClientOriginalExtension();
                     $realPath = $file->getRealPath();
 
                     $file_name   = date('Y-m-d-H-i-s').'-'.uniqid().'.'.$ext;
                     $bool = Storage::disk('article_uplods')->put($file_name,file_get_contents($realPath));
                     if($bool){
-                        $input['art_face'] = 'uploads/Article/'.$file_name;
+                        $input['art_face'] = '/uploads/Article/'.$file_name;
                     }else{
                         return back()->with('errors','图片上传失败！');
                     }
-                }else{
-                    return back()->with('errors','图片上传失败！');
                 }
-
 
                 $bool = Article::where('art_id',$input['art_id'])->update($input);
                 if($bool){

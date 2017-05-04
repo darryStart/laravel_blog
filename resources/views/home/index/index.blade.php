@@ -27,7 +27,7 @@
                                     <li>
                                         <a href="{{url('article',$v->art_id)}}">
                                             <div class="icourse-img">
-                                                <img src="{{$v->art_face}}" onerror="this.src='{{asset('static/home/images/default.jpg')}}'" class="img" title="{$v.a_title}" width="100%" height="200px" />
+                                                <img src="{{asset($v->art_face)}}" onerror="this.src='{{asset('static/home/images/default.jpg')}}'" class="img" title="{$v.a_title}" width="100%" height="200px" />
                                             </div>
                                         </a>
                                     </li>

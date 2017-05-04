@@ -8,7 +8,7 @@
             <div class="xl12 xs3 xm3 xb2">
                 <button class="button icon-navicon float-right" data-target="#header-demo"></button>
                 <a href="/">
-                    <img src="{{config('site.site_logo')}}" class="ring-hover"/>
+                    <img src="{{asset(config('site.site_logo'))}}" class="ring-hover"/>
                 </a>
             </div>
             <div class=" xl12 xs9 xm9 xb10 nav-navicon" id="header-demo">
@@ -54,7 +54,7 @@
     <div class="main_image">
         <ul>
             @foreach($advert as $v)
-                <li><span class="img"><img src="{{$v->img_url}}"  width="100%" height="400px"/></span></li>
+                <li><span class="img"><img src="{{asset($v->img_url)}}"  width="100%" height="400px"/></span></li>
             @endforeach
         </ul>
         <a href="javascript:;" id="btn_prev"></a>

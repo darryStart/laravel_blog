@@ -29,7 +29,7 @@ class SiteController extends CommonController
 
                     // 上传文件
                     $filename   = date('Y-m-d-H-i-s') . '-' . uniqid() . '.' . $ext;
-                    $input[$k]  = 'uploads/Site/'.$filename;
+                    $input[$k]  = '/uploads/Site/'.$filename;
 
                     // 使用我们新建的uploads本地存储空间（目录）
                     $bool = Storage::disk('site_uplods')->put($filename, file_get_contents($realPath));

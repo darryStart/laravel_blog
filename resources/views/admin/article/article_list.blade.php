@@ -48,7 +48,7 @@
                                     <td>
                                         {{$v->art_cate->cate_name}}
                                     </td>
-                                    <td><img src="/{{$v->art_face}}" style="height: 60px" /></td>
+                                    <td><img src="{{asset($v->art_face)}}" style="height: 60px" /></td>
                                     <td>{{$v->art_keyword}}</td>
                                     <td>{{$v->art_views}}</td>
                                     <td>@date('Y-m-d',$v->create_time)</td>

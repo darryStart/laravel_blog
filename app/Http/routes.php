@@ -4,7 +4,7 @@
 //后台路由
 Route::any('admin/login', 'admin\LoginController@login')->name('admin_login');//登录
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => ['admin.login']],function (){
+Route::group(['prefix' => 'admin', 'namespace' => 'admin','middleware' => ['admin.login']],function (){
     Route::get('index','IndexController@index')->name('admin_index');//首页
     Route::get('logout','LoginController@logout')->name('admin_logout');//退出
     Route::match(['get','post'],'edit_pwd','IndexController@edit_pwd')->name('admin_pwd');//修改密码
@@ -40,7 +40,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin','middleware' => ['admi
 
 //前台路由
 Route::group(['namespace' => 'home'], function () {
-    Route::get('/','IndexController@index');
+    Route::get('/','IndexController@index');//首页
+    Route::get('article/{id}', 'ArticleController@article')->where('id','[0-9]+')->name('show_article');
+
 });
 
 
