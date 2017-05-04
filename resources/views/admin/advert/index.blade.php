@@ -44,7 +44,7 @@
                             {{csrf_field()}}
                             @foreach($data as $v)
                                 <tr class="long-td">
-                                    <td><a href="/{{$v->img_url}}" target="_blank"><img src="/{{$v->img_url}}" style="width: 100px;height: 60px" /></a></td>
+                                    <td><a href="{{asset($v->img_url)}}" target="_blank"><img src="{{asset($v->img_url)}}" style="width: 100px;height: 60px" /></a></td>
                                     <td>{{$v->title}}</td>
                                     <td>{{$v->desc}}</td>
                                     <td>{{$v->link}}</td>
