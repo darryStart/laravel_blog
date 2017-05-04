@@ -6,7 +6,7 @@
             <div class="xs12">
                 <div class="a_title">{{$data->art_title}}</div>
                 <div class="a-write">时间：&nbsp;@date('Y-m-d',$data->create_time)&nbsp;&nbsp;作者：<a>{{$data->art_writer}}</a>&nbsp;&nbsp;阅读：（{{$data->art_views}}）</div>
-                <div class="a-content"  style="width:700px">
+                <div class="a-content"  style="width:800px">
                     {!! $data->art_content  !!}
                 </div>
                 <div class="a-write hidden-xs">
