@@ -11,7 +11,10 @@ body {background-image: url(bg.jpg);/*背景图片*/background-attachment: fixed
 }
 .carousel img {height: 400px;/*轮播高度*/}
 .nav .l_active a{font-weight: bold;color: #00AA88;}
-.articlebox{box-shadow: 0 0 10px 7px rgba(218, 218, 218, 0.9);}
+.articlebox{
+    box-shadow: 0 0 10px 7px rgba(218, 218, 218, 0.9);
+    margin-bottom: 10px;
+}
 .icourse-course li{
   position: relative;
   float: left;

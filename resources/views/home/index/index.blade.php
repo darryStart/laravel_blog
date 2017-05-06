@@ -3,9 +3,9 @@
 @section('body')
     <div class="xl12 xm8">
         <div class="line-small">
-                <div class="xs12">
+                <div class="xs12" style="margin-bottom: 20px">
                     @foreach($new_art as $v)
-                        <div class="clearfix articlebox">
+                        <div class="clearfix articlebox" style="margin-bottom: 10px">
                             <div class="detail_a">
                                 @if($v->art_type == '6')
                                     <span class="tag bg-dot">原 创</span>&nbsp;&nbsp;
@@ -48,7 +48,6 @@
                         </div>
                     @endforeach
                 </div>
-                <hr />
                 <div class="pages">
                     {!! $new_art->links() !!}
                 </div>
