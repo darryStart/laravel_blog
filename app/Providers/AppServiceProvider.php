@@ -7,6 +7,7 @@ use App\Http\Model\Article;
 use App\Http\Model\ArticleCate;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -39,7 +40,6 @@ class AppServiceProvider extends ServiceProvider
         });
 
 
-
         //轮播图
         if(Cache::has('advert_cache')){
             $advert = Cache::get('advert_cache');
@@ -47,6 +47,7 @@ class AppServiceProvider extends ServiceProvider
             $advert = Advert::where('state', '6')->orderBy('order_num','asc')->get();
             Cache::put('advert_cache',$advert,60);
         }
+
         //文章分类
         if(Cache::has('cate_cache')){
             $categroy = Cache::get('cate_cache');
@@ -54,6 +55,7 @@ class AppServiceProvider extends ServiceProvider
             $categroy = ArticleCate::orderBy('order_num','asc')->get(['cate_name','cate_id']);
             Cache::put('cate_cache',$categroy,60);
         }
+
         //标签
         if(Cache::has('label_cache')){
             $label = Cache::get('label_cache');
@@ -62,11 +64,20 @@ class AppServiceProvider extends ServiceProvider
             Cache::put('label_cache',$label,60);
         }
 
+        //随机文章
+        if(!Cache::has('random_art_cache')){
+            $random_art = Cache::get('random_art_cache');
+        }else{
+            $random_art = Article::orderByRaw('rand()')->take(3)->get(['art_id','art_title','art_face','art_remark']);
+            Cache::put('random_art_cache',$random_art,60);
+        }
+
         //数据共享
         view()->share(array(
             'advert'    => $advert,
             'cate'      => $categroy,
-            'label'     => $label
+            'label'     => $label,
+            'random_art' => $random_art
         ));
     }
 

@@ -33,23 +33,6 @@
     </div>
     <br /><hr />
     <div>
-        <h3><span class="icon-cloud-download"></span> 程序下载</h3>
-        <br />
-        <div class="tool">
-            <h4><span>站点版本：Lunhui v1.52 beta1.0</span></h4>
-            <h4><span>开源版本：Lunhui v1.52.20160217</span>
-                <a href=""><button id="download" class="button button-little bg-red"> &nbsp;&nbsp;下&nbsp;载 &nbsp;&nbsp;</button></a>
-
-                <br />
-
-                <h4><span>本次更新（20160217）</span></h4>
-                <h4><span>1.修复火狐浏览器上传图片失败报302错误的问题。<br/>
-2.修复程序在二级目录下后台登录背景不显示的问题。</span></h4>
-        </div>
-    </div>
-    <br />
-    <hr />
-    <div>
         <h3><span class="icon-wrench"></span> 我的标签</h3>
         <h4>
             <div class="tag-ul">
@@ -85,31 +68,21 @@
     <h2 class="bg-main text-white padding">随机文章</h2>
     <div class="padding-big bg">
         <ul class="list-media list-underline">
-            <li>
-                <div class="media media-x img-small">
-                    <a class="float-left" href="/Article/index/a_id/25.html"><img src="http://ilunhui.cn/Uploads/./images/2016-01-04/5689ca446a6bf.png" onerror="this.src='http://ilunhui.cn/Public/Home/images/default.jpg'" class="radius"></a>
-                    <div class="media-body">
-                        <strong>CSS3在线按钮制作...</strong>在过去的Web开发中，通常使用Photoshop来设计按钮的样式。不过...
-                        <a class="button button-little border-red swing-hover" href="/Article/index/a_id/25.html">查看详情</a>
+            @foreach($random_art as $v)
+                <li>
+                    <div class="media media-x img-small">
+                        <a class="float-left" href="{{url('article',$v->art_id)}}"><img src="{{asset($v->art_face)}}" onerror="this.src='{{asset('static/home/images/default.jpg')}}'" class="radius"></a>
+                        <div class="media-body">
+                            <strong>
+                                {{mb_substr($v->art_title,0,22,'utf-8')}}...
+                            </strong>
+                            {{mb_substr($v->art_remark,0,35,'utf-8')}}...
+                            <a class="button button-little border-red swing-hover" href="{{route('show_article',$v->art_id)}}">查看详情</a>
+                        </div>
                     </div>
-                </div>
-            </li><li>
-                <div class="media media-x img-small">
-                    <a class="float-left" href="/Article/index/a_id/67.html"><img src="http://ilunhui.cn/Uploads//images/2016-04-11/570b71da3dc77.jpg" onerror="this.src='http://ilunhui.cn/Public/Home/images/default.jpg'" class="radius"></a>
-                    <div class="media-body">
-                        <strong>windows mysql 自动...</strong>在windows中备份mysql 数据库的方法有很多种，如有常用的Wi...
-                        <a class="button button-little border-red swing-hover" href="/Article/index/a_id/67.html">查看详情</a>
-                    </div>
-                </div>
-            </li><li>
-                <div class="media media-x img-small">
-                    <a class="float-left" href="/Article/index/a_id/68.html"><img src="http://ilunhui.cn/Uploads//images/2016-04-15/5710cc6193cc8.png" onerror="this.src='http://ilunhui.cn/Public/Home/images/default.jpg'" class="radius"></a>
-                    <div class="media-body">
-                        <strong>Java开发Maven环境配置和...</strong>最近下了一份java开发的网站，使用了一下，但是在eclipse中竟然...
-                        <a class="button button-little border-red swing-hover" href="/Article/index/a_id/68.html">查看详情</a>
-                    </div>
-                </div>
-            </li>		</ul>
+                </li>
+            @endforeach
+        </ul>
     </div>
     <br />
     <div class="tab border-main" data-toggle="hover" style="height: 470px;">
