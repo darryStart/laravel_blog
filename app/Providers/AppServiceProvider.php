@@ -65,11 +65,19 @@ class AppServiceProvider extends ServiceProvider
         }
 
         //随机文章
-        if(!Cache::has('random_art_cache')){
+        if(Cache::has('random_art_cache')){
             $random_art = Cache::get('random_art_cache');
         }else{
             $random_art = Article::orderByRaw('rand()')->take(3)->get(['art_id','art_title','art_face','art_remark']);
             Cache::put('random_art_cache',$random_art,60);
+        }
+
+        //热门文章
+        if(Cache::has('hot_art_cache')){
+            $hot_art = Cache::get('hot_art_cache');
+        }else{
+            $hot_art = Article::orderBy('art_views','desc')->take(12)->get(['art_id','art_title','art_views']);
+            Cache::put('hot_art_cache',$hot_art,5);
         }
 
         //数据共享
@@ -77,7 +85,8 @@ class AppServiceProvider extends ServiceProvider
             'advert'    => $advert,
             'cate'      => $categroy,
             'label'     => $label,
-            'random_art' => $random_art
+            'random_art' => $random_art,
+            'hot_art'   => $hot_art
         ));
     }
 

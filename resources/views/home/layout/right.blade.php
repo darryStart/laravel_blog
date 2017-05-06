@@ -71,7 +71,7 @@
             @foreach($random_art as $v)
                 <li>
                     <div class="media media-x img-small">
-                        <a class="float-left" href="{{url('article',$v->art_id)}}"><img src="{{asset($v->art_face)}}" onerror="this.src='{{asset('static/home/images/default.jpg')}}'" class="radius"></a>
+                        <a class="float-left" href="{{route('show_article',$v->art_id)}}"><img src="{{asset($v->art_face)}}" onerror="this.src='{{asset('static/home/images/default.jpg')}}'" class="radius"></a>
                         <div class="media-body">
                             <strong>
                                 {{mb_substr($v->art_title,0,22,'utf-8')}}...
@@ -90,7 +90,7 @@
 
             <ul class="tab-nav">
                 <li class="active"><a href="#tab-start2">最新留言</a> </li>
-                <li><a href="#tab-css2">最多点击</a> </li>
+                <li><a href="#tab-css2">热门文章</a> </li>
                 <li><a href="#tab-units2">申请友链</a> </li>
             </ul>
         </div>
@@ -139,31 +139,14 @@
                 </div>
             </div>
             <div class="tab-panel" id="tab-css2" >
-                <li style="margin-bottom:8px"><h4>
-                        <a href="/Article/index/a_id/61.html"><span class="icon-leaf"></span> 关于ThinkPHP下使用Uploadify插件 仅有火狐提示HTTP Error (302)错误的解决办法(26299)</a>
-                    </h4></li><li style="margin-bottom:8px"><h4>
-                        <a href="/Article/index/a_id/66.html"><span class="icon-leaf"></span> 解决PHPExcel导出长数字末尾几位数为0的问题(8278)</a>
-                    </h4></li><li style="margin-bottom:8px"><h4>
-                        <a href="/Article/index/a_id/72.html"><span class="icon-leaf"></span> APICloud微信、QQ登录分享实现方法及注意事项(8093)</a>
-                    </h4></li><li style="margin-bottom:8px"><h4>
-                        <a href="/Article/index/a_id/56.html"><span class="icon-leaf"></span> Sublime text 3的安装与使用方法(1565)</a>
-                    </h4></li><li style="margin-bottom:8px"><h4>
-                        <a href="/Article/index/a_id/46.html"><span class="icon-leaf"></span> PHP人民币金额数字转中文大写的函数代码(1434)</a>
-                    </h4></li><li style="margin-bottom:8px"><h4>
-                        <a href="/Article/index/a_id/13.html"><span class="icon-leaf"></span> 字号与像素的转换(1287)</a>
-                    </h4></li><li style="margin-bottom:8px"><h4>
-                        <a href="/Article/index/a_id/26.html"><span class="icon-leaf"></span> 基于腾讯手Q样式规范Frozen UI(1251)</a>
-                    </h4></li><li style="margin-bottom:8px"><h4>
-                        <a href="/Article/index/a_id/57.html"><span class="icon-leaf"></span> 代码高亮插件SyntaxHighlighter(1225)</a>
-                    </h4></li><li style="margin-bottom:8px"><h4>
-                        <a href="/Article/index/a_id/5.html"><span class="icon-leaf"></span> PHP初学者必须掌握的10个知识点(1166)</a>
-                    </h4></li><li style="margin-bottom:8px"><h4>
-                        <a href="/Article/index/a_id/58.html"><span class="icon-leaf"></span> Apache开启伪静态(1153)</a>
-                    </h4></li><li style="margin-bottom:8px"><h4>
-                        <a href="/Article/index/a_id/4.html"><span class="icon-leaf"></span> Thinkphp常用配置(1144)</a>
-                    </h4></li><li style="margin-bottom:8px"><h4>
-                        <a href="/Article/index/a_id/52.html"><span class="icon-leaf"></span> PHP实现时间轴函数(1130)</a>
-                    </h4></li>			</div>
+                @foreach($hot_art as $v)
+                    <li style="margin-bottom:8px">
+                        <h4>
+                            <a href="{{route('show_article',$v->art_id)}}"><span class="icon-leaf"></span> {{$v->art_title}}({{$v->art_views}})</a>
+                        </h4>
+                    </li>
+                @endforeach
+            </div>
             <div class="tab-panel" id="tab-units2">
                 <div class="panel-body">
                     正在开发中，敬请期待。。。。
