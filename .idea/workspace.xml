@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c7372458-fb4c-432a-8bf2-88a78b295caa" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/storage/framework/cache/68/ca/68ca5b26ae63398e89167ce44389d86d44cec132" afterPath="$PROJECT_DIR$/storage/framework/cache/68/ca/68ca5b26ae63398e89167ce44389d86d44cec132" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/home/layout/right.blade.php" afterPath="$PROJECT_DIR$/resources/views/home/layout/right.blade.php" />
-    </list>
+    <list default="true" id="c7372458-fb4c-432a-8bf2-88a78b295caa" name="Default" comment="" />
     <ignored path="laravel_blog.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -413,7 +409,7 @@
       <workItem from="1493258514448" duration="1368000" />
       <workItem from="1493347479986" duration="8577000" />
       <workItem from="1493861676949" duration="19445000" />
-      <workItem from="1494038128508" duration="13366000" />
+      <workItem from="1494038128508" duration="13965000" />
     </task>
     <task id="LOCAL-00001" summary="advert&#10;">
       <created>1492672230857</created>
@@ -426,7 +422,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="203275000" />
+    <option name="totallyTimeSpent" value="203874000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -438,7 +434,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19989339" sideWeight="0.5056543" order="4" side_tool="true" content_ui="tabs" />
