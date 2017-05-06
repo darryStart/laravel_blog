@@ -1,5 +1,5 @@
 @extends('home.layout.base')
-@section('title','最新文章')
+@section('title',$title)
 @section('body')
     <div class="xl12 xm8">
         <div class="line-small">
@@ -22,7 +22,6 @@
                                 </div>
                             </div>
                             <div class="article">
-
                                 <ul class="icourse-course">
                                     <li>
                                         <a href="{{url('article',$v->art_id)}}">

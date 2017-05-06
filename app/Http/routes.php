@@ -40,7 +40,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin','middleware' => ['admi
 
 //前台路由
 Route::group(['namespace' => 'home'], function () {
-    Route::get('/','IndexController@index');//首页
+    Route::get('/{cate?}','IndexController@index')->where('cate','[0-9]+')->name('home');//首页
     Route::get('article/{id}', 'ArticleController@article')->where('id','[0-9]+')->name('show_article');
 
 });

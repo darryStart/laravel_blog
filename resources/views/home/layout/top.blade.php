@@ -20,7 +20,7 @@
                             <ul class="drop-menu">
                                 @foreach($cate as $v)
                                 <li>
-                                    <a href="{{url('categroy',$v->cate_id)}}">{{$v->cate_name}}</a>
+                                    <a href="{{route('home',['cate' => $v->cate_id])}}">{{$v->cate_name}}</a>
                                 </li>
                                 @endforeach
                             </ul>
