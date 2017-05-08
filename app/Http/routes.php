@@ -41,9 +41,14 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin','middleware' => ['admi
 //前台路由
 Route::group(['namespace' => 'home'], function () {
     Route::get('/{cate?}','IndexController@index')->where('cate','[0-9]+')->name('home');//首页
-    Route::get('article/{id}', 'ArticleController@article')->where('id','[0-9]+')->name('show_article');
+    Route::get('article/{id}', 'ArticleController@article')->where('id','[0-9]+')->name('show_article');//文章显示
+    Route::post('link_add','LinkController@link')->name('home_link');//申请友链
 
 });
+
+//图形验证
+Route::get('captcha/{tmp}', 'CaptchaController@captcha');
+Route::post('captcha_check', 'CaptchaController@check');
 
 
 

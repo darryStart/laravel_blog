@@ -33,6 +33,8 @@ class IndexController extends CommonController {
                     'art_views','art_red','art_writer','create_time'
                 )
             );
+
+
         return view('home.index.index', array('new_art' => $new_art,'title' => $title));
     }
 }

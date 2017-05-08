@@ -148,8 +148,41 @@
                 @endforeach
             </div>
             <div class="tab-panel" id="tab-units2">
-                <div class="panel-body">
-                    正在开发中，敬请期待。。。。
+                <div class="panel-body" style="border:1px solid #00aa88;border-radius:5px">
+                    <form method="post">
+                        <div style="margin: 10px">
+                            <div>
+                                <label style="font-weight: bold">
+                                    友链名称:&nbsp;&nbsp;&nbsp; <input type="text" id="link_name" class="input input-auto" name="link_name" size="27"/>
+                                </label>
+                            </div>
+                        </div>
+                        <div  style="margin: 10px">
+                            <div>
+                                <label style="font-weight: bold">
+                                    友情链接:&nbsp;&nbsp;&nbsp; <input type="text" id="link" class="input input-auto" name="link_" size="27" />
+                                </label>
+                            </div>
+                        </div>
+                        <div  style="margin: 10px">
+                            <div>
+                                <label style="font-weight: bold">
+                                    联系邮箱:&nbsp;&nbsp;&nbsp; <input type="text" id="email" class="input input-auto" name="username" size="27"/>
+                                </label>
+                            </div>
+                        </div>
+                        <div  style="margin: 10px">
+                            <div>
+                                <label style="font-weight: bold">
+                                    &nbsp;验&nbsp;证&nbsp;码:&nbsp;&nbsp;&nbsp; <input type="text"  id="cartcha_val" class="input input-auto" size="14" placeholder="验证码"/>
+                                    <img onclick="javascript:re_captcha();" src="{{url('captcha',1) }}"  alt="验证码" title="刷新图片" width="100" height="34" id="captcha" border="0">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-button">
+                            <button class="button bg-blue" type="button" id="link-submit" style="width: 90%;margin-left: 4%"><span style="font-weight: bold;font-size: 16px;">申&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请</span></button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -164,3 +197,78 @@
     <hr />
     <br />
 </div>
+<script>
+    function re_captcha() {
+        var url = "{{url('captcha')}}" + "/" + Math.random();
+        document.getElementById('captcha').src=url;
+    }
+
+    $(function () {
+        $('#link-submit').click(function () {
+
+            $.ajax({
+                url:"{{url('captcha_check')}}",
+                data:{'code':$("#cartcha_val").val(),'_token':'{{csrf_token()}}'},
+                type:'post',
+                async:true,
+                success:function (msg) {
+                    if(msg != '200'){
+                        $("#cartcha_val").css("border-color","red");
+                        re_captcha();
+                        return;
+                    }else{
+                        $("#cartcha_val").css('border-color','#00aaee')
+                    }
+                },
+                error:function () {
+                    $("#cartcha_val").css("border-color","pink");
+                    return;
+                }
+            });
+
+
+            if($('#link_name').val() == ''){
+                $("#link_name").css("border-color","red");
+                return false;
+            }else {
+                $("#link_name").css('border-color','#00aaee')
+            }
+
+            if($('#link').val() == ''){
+                $("#link").css("border-color","red");
+                return false;
+            }else {
+                $("#link").css('border-color','#00aaee')
+            }
+
+            var email = $("#email").val();
+            var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+            if(reg.test(email)){
+                $("#email").css('border-color','#00aaee')
+            }else {
+                $("#email").css("border-color","red");
+                return false;
+            }
+
+            $.ajax({
+                'url':"{{route('home_link')}}",
+                'data':{'link_name':$('#link_name').val(),'link_url':$('#link').val(),'apply_email':email,'_token':"{{csrf_token()}}"},
+                'type':'post',
+                success:function (msg) {
+                    console.log(msg);
+//                    if(msg == '200'){
+//                        alert('200');
+//                    }else{
+//                        alert('400');
+//                    }
+                },
+                error:function () {
+                    alert('4001');
+                }
+            });
+
+        });
+    })
+
+
+</script>
