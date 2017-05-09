@@ -62,3 +62,24 @@ body {background-image: url(bg.jpg);/*背景图片*/background-attachment: fixed
 .about{height: auto;float: left;display: block;font-size: 16px;}
 .about p,.about-love p{line-height: 30px;}
 .about-love{display: block;font-size: 16px;}
+
+
+.link-box{
+    border:1px solid #00aa88;
+    border-radius:5px;
+}
+.link-input{
+    margin: 10px
+}
+.link-input > div > label{
+    font-weight: bold;
+}
+.link-button{
+    width: 90%;
+    margin-left: 4%;
+}
+
+.link-button > span{
+    font-weight: bold;
+    font-size: 16px;
+}

@@ -1,4 +1,3 @@
-
 <div class="xl12 xm4">
     <div>
         <h3><span class="icon-user"></span> 用户登录</h3>
@@ -148,39 +147,32 @@
                 @endforeach
             </div>
             <div class="tab-panel" id="tab-units2">
-                <div class="panel-body" style="border:1px solid #00aa88;border-radius:5px">
-                    <form method="post">
-                        <div style="margin: 10px">
+                <div class="panel-body link-box">
+                    <form method="post" id="link_form">
+                        <div class="link-input" >
                             <div>
-                                <label style="font-weight: bold">
-                                    友链名称:&nbsp;&nbsp;&nbsp; <input type="text" id="link_name" class="input input-auto" name="link_name" size="27"/>
+                                <label>
+                                    友链名称:&nbsp;&nbsp;&nbsp; <input type="text" id="link_name" class="input input-auto" size="27"/>
                                 </label>
                             </div>
                         </div>
-                        <div  style="margin: 10px">
+                        <div class="link-input">
                             <div>
-                                <label style="font-weight: bold">
-                                    友情链接:&nbsp;&nbsp;&nbsp; <input type="text" id="link" class="input input-auto" name="link_" size="27" />
+                                <label >
+                                    友情链接:&nbsp;&nbsp;&nbsp; <input type="text" id="link" class="input input-auto" size="27" />
                                 </label>
                             </div>
                         </div>
-                        <div  style="margin: 10px">
+                        <div  class="link-input">
                             <div>
-                                <label style="font-weight: bold">
-                                    联系邮箱:&nbsp;&nbsp;&nbsp; <input type="text" id="email" class="input input-auto" name="username" size="27"/>
-                                </label>
-                            </div>
-                        </div>
-                        <div  style="margin: 10px">
-                            <div>
-                                <label style="font-weight: bold">
+                                <label>
                                     &nbsp;验&nbsp;证&nbsp;码:&nbsp;&nbsp;&nbsp; <input type="text"  id="cartcha_val" class="input input-auto" size="14" placeholder="验证码"/>
                                     <img onclick="javascript:re_captcha();" src="{{url('captcha',1) }}"  alt="验证码" title="刷新图片" width="100" height="34" id="captcha" border="0">
                                 </label>
                             </div>
                         </div>
                         <div class="form-button">
-                            <button class="button bg-blue" type="button" id="link-submit" style="width: 90%;margin-left: 4%"><span style="font-weight: bold;font-size: 16px;">申&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请</span></button>
+                            <button class="button bg-blue" type="button" class="link-button" id="link-submit"><span>申&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请</span></button>
                         </div>
                     </form>
                 </div>
@@ -191,7 +183,9 @@
         <h3><span class="icon-retweet"></span> 友情链接</h3>
         <br />
         <div class="links">
-            <a href="http://thinkphp.cn" target="_blank" class="button border-blue" role="button">ThinkPHP</a>&nbsp;<a href="http://www.bootcss.com/" target="_blank" class="button border-blue" role="button">Bootstrap中文网</a>&nbsp;<a href="http://www.loveteemo.com" target="_blank" class="button border-blue" role="button">青春博客</a>&nbsp;<a href="http://www.blogxuan.com/" target="_blank" class="button border-blue" role="button">玄玄博客</a>&nbsp;<a href="http://www.dawnfly.cn" target="_blank" class="button border-blue" role="button">破晓博客</a>&nbsp;<a href="http://www.phpbst.com" target="_blank" class="button border-blue" role="button">PHP百事通</a>&nbsp;<a href="http://www.twbk.net/" target="_blank" class="button border-blue" role="button">老谭博客</a>&nbsp;<a href="http://www.xawzjs.net" target="_blank" class="button border-blue" role="button">西安网站建设</a>&nbsp;<a href="http://www.xuexiaofeng.com/" target="_blank" class="button border-blue" role="button">风色幻想</a>&nbsp;<a href="http://www.bloggl.com" target="_blank" class="button border-blue" role="button">Aler's  blog</a>&nbsp;<a href="http://www.bnyone.com/" target="_blank" class="button border-blue" role="button">繁华分享</a>&nbsp;<a href="http://www.qsblog.cn" target="_blank" class="button border-blue" role="button">情殇博客</a>&nbsp;<a href="http://www.momolove.cn/" target="_blank" class="button border-blue" role="button">暧学习</a>&nbsp;<a href="http://www.ice-breaker.cn" target="_blank" class="button border-blue" role="button">破冰者博客</a>&nbsp;<a href="http://www.amuker.com" target="_blank" class="button border-blue" role="button">慕轲博客</a>&nbsp;<a href="http://www.pengyaohui.cn" target="_blank" class="button border-blue" role="button">回忆博客</a>&nbsp;		</div>
+            @foreach($link as $v)
+                <a href="{{$v->link_url}}" target="_blank" class="button border-blue" role="button">{{$v->link_name}}</a>&nbsp;
+            @endforeach
     </div>
     <br />
     <hr />
@@ -205,28 +199,6 @@
 
     $(function () {
         $('#link-submit').click(function () {
-
-            $.ajax({
-                url:"{{url('captcha_check')}}",
-                data:{'code':$("#cartcha_val").val(),'_token':'{{csrf_token()}}'},
-                type:'post',
-                async:true,
-                success:function (msg) {
-                    if(msg != '200'){
-                        $("#cartcha_val").css("border-color","red");
-                        re_captcha();
-                        return;
-                    }else{
-                        $("#cartcha_val").css('border-color','#00aaee')
-                    }
-                },
-                error:function () {
-                    $("#cartcha_val").css("border-color","pink");
-                    return;
-                }
-            });
-
-
             if($('#link_name').val() == ''){
                 $("#link_name").css("border-color","red");
                 return false;
@@ -241,34 +213,42 @@
                 $("#link").css('border-color','#00aaee')
             }
 
-            var email = $("#email").val();
-            var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
-            if(reg.test(email)){
-                $("#email").css('border-color','#00aaee')
-            }else {
-                $("#email").css("border-color","red");
-                return false;
-            }
-
             $.ajax({
-                'url':"{{route('home_link')}}",
-                'data':{'link_name':$('#link_name').val(),'link_url':$('#link').val(),'apply_email':email,'_token':"{{csrf_token()}}"},
-                'type':'post',
+                url:"{{url('captcha_check')}}",
+                data:{'code':$("#cartcha_val").val(),'_token':'{{csrf_token()}}'},
+                type:'post',
+                async:true,
                 success:function (msg) {
-                    console.log(msg);
-//                    if(msg == '200'){
-//                        alert('200');
-//                    }else{
-//                        alert('400');
-//                    }
+                    if(msg != '200'){
+                        $("#cartcha_val").css("border-color","red");
+                        re_captcha();
+                        return false;
+                    }else{
+                        $("#cartcha_val").css('border-color','#00aaee')
+                        $.ajax({
+                            'url':"{{route('home_link')}}",
+                            'data':{'link_name':$('#link_name').val(),'link_url':$('#link').val(),'_token':"{{csrf_token()}}"},
+                            'type':'post',
+                            success:function (msg) {
+                                $('#link_form')[0].reset();
+                                if(msg == '200'){
+                                    $('#link-submit').html('申请成功,等待审核');
+                                }else{
+                                    $('#link-submit').html('申请失败,请重新申请');
+                                }
+
+                            },
+                            error:function () {
+                                layer.msg('网络错误!');
+                            }
+                        });
+                    }
                 },
                 error:function () {
-                    alert('4001');
+                    $("#cartcha_val").css("border-color","pink");
+                    return false;
                 }
             });
-
         });
     })
-
-
 </script>

@@ -34,6 +34,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin','middleware' => ['admi
     Route::match(['get','post'], 'article/categroy_edit/{id?}', 'ArticleController@categroy_edit')->where('id','[0-9]+')->name('categroy_edit');//编辑文章分类
     Route::get('article/categroy_del/{id}', 'ArticleController@categroy_del')->where('id','[0-9]+');//删除文章分类
 
+
+    Route::get('link/link_list','LinkController@link_list')->name('link');//友链列表
+    Route::match(['get','post'],'link/link_add','LinkController@link_add')->name('link_add');//添加友链
+    Route::match(['get','post'],'link/link_edit/{link_id?}','LinkController@link_edit')->where('link_id','[0-9]+')->name('link_edit');//编辑友链
+    Route::post('link/state','LinkController@state')->name('link_state');//修改友链状态
+    Route::get('link/link_del/{link_id}','LinkController@link_del')->where('link_id','[0-9]+')->name('link_del');//删除友链
+
 });
 
 

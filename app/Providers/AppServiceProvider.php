@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Http\Model\Advert;
 use App\Http\Model\Article;
 use App\Http\Model\ArticleCate;
+use App\Http\Model\Link;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
@@ -80,13 +81,23 @@ class AppServiceProvider extends ServiceProvider
             Cache::put('hot_art_cache',$hot_art,5);
         }
 
+        //友链
+        if(Cache::has('link_cache')){
+            $link = Cache::get('link_cache');
+        }else{
+            $link = Link::where('state',6)->orderBy('order_num','asc')->get(['link_name','link_url']);
+            Cache::put('link_cache',$link,60);
+        }
+
+
         //数据共享
         view()->share(array(
             'advert'    => $advert,
             'cate'      => $categroy,
             'label'     => $label,
             'random_art' => $random_art,
-            'hot_art'   => $hot_art
+            'hot_art'   => $hot_art,
+            'link'      => $link
         ));
     }
 

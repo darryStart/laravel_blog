@@ -117,9 +117,10 @@
                             <li><a href="/index.php?s=/Admin/liuyan/index.html">留言管理</a></li>
                         </ul>
                     </li>
-                    <li class="submenu"><a href="#"><i class="icon fa fa-link"></i> <span>链接管理</span><span class="fa arrow"></a>
+                    <li class="submenu @if(strstr(Request::fullUrl(),route('link'))  or strstr(Request::fullUrl(),route('link_add')) or strstr(Request::fullUrl(),route('link_edit'))) active @endif"">
+                        <a href="#"><i class="icon fa fa-link"></i> <span>链接管理</span><span class="fa arrow"></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="/index.php?s=/Admin/link/index.html">链接管理</a></li>
+                            <li><a href="{{route('link')}}">链接管理</a></li>
                         </ul>
                     </li>
                 </li>

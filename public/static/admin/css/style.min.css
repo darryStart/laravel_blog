@@ -1045,7 +1045,8 @@ button.dim:active:before {
 .badge-primary,
 .label-primary {
 	background-color: #1ab394;
-	color: #FFF
+	color: #FFF;
+	cursor: pointer;
 }
 
 .badge-success,
@@ -1069,7 +1070,8 @@ button.dim:active:before {
 .badge-danger,
 .label-danger {
 	background-color: #ed5565;
-	color: #FFF
+	color: #FFF;
+	cursor: pointer;
 }
 
 .badge-info,

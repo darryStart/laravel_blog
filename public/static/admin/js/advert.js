@@ -12,6 +12,7 @@ $(document).on('click','.label-primary',function(){
 
 
 function open_close(_this,state) {
+
     var token = $('input[name="_token"]').val();
     var id = _this.attr('about');
     var url = _this.attr('url');
