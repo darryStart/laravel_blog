@@ -41,6 +41,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin','middleware' => ['admi
     Route::post('link/state','LinkController@state')->name('link_state');//修改友链状态
     Route::get('link/link_del/{link_id}','LinkController@link_del')->where('link_id','[0-9]+')->name('link_del');//删除友链
 
+
+
+
+
 });
 
 
@@ -50,6 +54,9 @@ Route::group(['namespace' => 'home'], function () {
     Route::get('/{cate?}','IndexController@index')->where('cate','[0-9]+')->name('home');//首页
     Route::get('article/{id}', 'ArticleController@article')->where('id','[0-9]+')->name('show_article');//文章显示
     Route::post('link_add','LinkController@link')->name('home_link');//申请友链
+
+    Route::get('say','SayController@say')->name('say');//说说
+    Route::post('say_add','SayController@say_add')->name('say_add');//添加说说
 
 });
 

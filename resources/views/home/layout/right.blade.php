@@ -167,12 +167,12 @@
                             <div>
                                 <label>
                                     &nbsp;验&nbsp;证&nbsp;码:&nbsp;&nbsp;&nbsp; <input type="text"  id="cartcha_val" class="input input-auto" size="14" placeholder="验证码"/>
-                                    <img onclick="javascript:re_captcha();" src="{{url('captcha',1) }}"  alt="验证码" title="刷新图片" width="100" height="34" id="captcha" border="0">
+                                    <img onclick="javascript:re_captcha();" src="{{url('captcha',1) }}"  alt="验证码" title="刷新图片" width="100" height="34" class="captcha" border="0">
                                 </label>
                             </div>
                         </div>
                         <div class="form-button">
-                            <button class="button bg-blue" type="button" class="link-button" id="link-submit"><span>申&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请</span></button>
+                            <button class="button bg-blue link-button" type="button" id="link-submit"><span>申&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请</span></button>
                         </div>
                     </form>
                 </div>
@@ -192,12 +192,14 @@
     <br />
 </div>
 <script>
+
     function re_captcha() {
         var url = "{{url('captcha')}}" + "/" + Math.random();
-        document.getElementById('captcha').src=url;
+        $('.captcha').attr('src',url);
     }
-
     $(function () {
+
+
         $('#link-submit').click(function () {
             if($('#link_name').val() == ''){
                 $("#link_name").css("border-color","red");
@@ -225,6 +227,10 @@
                         return false;
                     }else{
                         $("#cartcha_val").css('border-color','#00aaee')
+
+                        $("#link-submit").attr('disabled',true);
+                        $("#link-submit").html('正在申请中...');
+
                         $.ajax({
                             'url':"{{route('home_link')}}",
                             'data':{'link_name':$('#link_name').val(),'link_url':$('#link').val(),'_token':"{{csrf_token()}}"},

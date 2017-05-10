@@ -6168,7 +6168,7 @@ hr.space {
 /*无序有序列表*/
 
 ul {
-	padding-left: 20px;
+	/*padding-left: 20px;*/
 }
 
 ol {
@@ -9301,6 +9301,6 @@ blockquote.border-dot strong,
 }
 
 .waterfall li {display: inline-block;margin: 5px 0;}
-.waterfall li img {display: inline-block;	width: 100%;}
+.waterfall li img {display: inline-block;width: 100%;}
 
 /*瀑布流,使用到的需要调整宽度*/

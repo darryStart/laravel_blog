@@ -49,7 +49,12 @@ body {background-image: url(bg.jpg);/*背景图片*/background-attachment: fixed
 .tool a {width: 180px;text-align: center;margin-left: 5px;margin-bottom: 8px;}
 .img-small img {width: 100px;height: 88px;border: 1px solid #D0D0D0;}
 .said_time {display: block;width: 100%;font-size: 13px;color: #0a8;margin-bottom: 20px;float: left;}
+
+
+
 .said_img img {margin-left: 20px;margin-right: 20px;margin-bottom: 20px;float: left;}
+
+
 .said_c {font-size: 16px;margin-left: 80px;top: 10;padding: 15px;line-height: 25px;}
 .liuyan_a {padding-top: 15px;padding-left: 20px;line-height: 20px;margin-bottom: 15px;}
 .f_liuyan{margin-left: 70px;}
@@ -64,6 +69,7 @@ body {background-image: url(bg.jpg);/*背景图片*/background-attachment: fixed
 .about-love{display: block;font-size: 16px;}
 
 
+/*友链*/
 .link-box{
     border:1px solid #00aa88;
     border-radius:5px;
@@ -82,4 +88,28 @@ body {background-image: url(bg.jpg);/*背景图片*/background-attachment: fixed
 .link-button > span{
     font-weight: bold;
     font-size: 16px;
+}
+
+
+/*说说*/
+.reply-icon{
+    color: #00a581;
+    cursor: pointer;
+}
+
+.reply-div{
+    margin-left: 10%;
+    display: none;
+
+    /*width:600px;!*宽*!height:170px;!*高*!background:#fff;!*背景颜色*!*/
+    /*margin:50px auto 30px; border-radius:5px;!*Html5 圆角*!*/
+}
+.say-content{
+    border-radius: 5px;
+}
+
+.reply-sub{
+    margin-left: 80%;
+    height: 30px;
+    width: 60px;
 }

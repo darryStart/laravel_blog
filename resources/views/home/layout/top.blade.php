@@ -25,8 +25,8 @@
                                 @endforeach
                             </ul>
                         </li>
-                        <li><a href="/said.html">说说</a></li>
-                        <li><a href="/liuyan.html">留言板</a></li>
+                        <li><a href="{{route('say')}}">说说</a></li>
+                        <li><a href="">留言板</a></li>
                         <li><a href="/friend.html">访客</a></li>
                         <li><a href="/about.html">关于我</a></li>
                     </ul>
