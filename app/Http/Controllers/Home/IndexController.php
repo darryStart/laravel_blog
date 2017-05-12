@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Home;
 use App\Http\Model\Advert;
 use App\Http\Model\Article;
 use App\Http\Model\ArticleCate;
+use App\Jobs\SendReply;
 use Illuminate\Support\Facades\Cache;
 
 class IndexController extends CommonController {

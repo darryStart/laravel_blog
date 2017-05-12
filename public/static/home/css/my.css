@@ -50,16 +50,14 @@ body {background-image: url(bg.jpg);/*背景图片*/background-attachment: fixed
 .img-small img {width: 100px;height: 88px;border: 1px solid #D0D0D0;}
 .said_time {display: block;width: 100%;font-size: 13px;color: #0a8;margin-bottom: 20px;float: left;}
 
+.said_img .radius-circle {margin-left: 20px;margin-right: 20px;margin-bottom: 20px;float: left;}
 
 
-.said_img img {margin-left: 20px;margin-right: 20px;margin-bottom: 20px;float: left;}
-
-
-.said_c {font-size: 16px;margin-left: 80px;top: 10;padding: 15px;line-height: 25px;}
+.said_c {font-size: 16px;margin-left: 80px;top: 10px;padding: 15px;line-height: 25px;}
 .liuyan_a {padding-top: 15px;padding-left: 20px;line-height: 20px;margin-bottom: 15px;}
 .f_liuyan{margin-left: 70px;}
 .liuyan_t {font-size: 14px;color: #0a8;	}
-.liuyan_c {font-size: 16px;margin-left: 80px;top: 10;padding: 15px;line-height: 25px;}
+.liuyan_c {font-size: 16px;margin-left: 80px;top: 10px;padding: 15px;line-height: 25px;}
 .QQfriends img{margin-bottom: 10px;margin-right: 10px;}
 .foot{height: 100px;color: #666767;margin-top: 100px;}
 .foot a{color: #666767;}

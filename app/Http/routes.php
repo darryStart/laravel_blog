@@ -57,7 +57,7 @@ Route::group(['namespace' => 'home'], function () {
 
     Route::get('say','SayController@say')->name('say');//说说
     Route::post('say_add','SayController@say_add')->name('say_add');//添加说说
-
+    Route::post('reply','SayController@repay_queue')->name('reply');//回复说说,此处使用了队列queue
 });
 
 //图形验证
