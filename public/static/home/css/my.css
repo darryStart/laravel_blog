@@ -52,7 +52,6 @@ body {background-image: url(bg.jpg);/*背景图片*/background-attachment: fixed
 
 .said_img .radius-circle {margin-left: 20px;margin-right: 20px;margin-bottom: 20px;float: left;}
 
-
 .said_c {font-size: 16px;margin-left: 80px;top: 10px;padding: 15px;line-height: 25px;}
 .liuyan_a {padding-top: 15px;padding-left: 20px;line-height: 20px;margin-bottom: 15px;}
 .f_liuyan{margin-left: 70px;}
@@ -91,16 +90,15 @@ body {background-image: url(bg.jpg);/*背景图片*/background-attachment: fixed
 
 /*说说*/
 .reply-icon{
-    color: #00a581;
+    color: #3bd;
     cursor: pointer;
+    margin-left: 10px;
 }
 
 .reply-div{
     margin-left: 10%;
     display: none;
-
-    /*width:600px;!*宽*!height:170px;!*高*!background:#fff;!*背景颜色*!*/
-    /*margin:50px auto 30px; border-radius:5px;!*Html5 圆角*!*/
+    margin-bottom: 10px;
 }
 .say-content{
     border-radius: 5px;

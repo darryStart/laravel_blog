@@ -15,7 +15,7 @@ class SayController extends CommonController {
     public function say()
     {
         Session::set('login_user',array('user_id' => '1', 'user_name' => 'admin-darry','user_face' => 'http://localhost/static/home/images/Portrait/16.jpg'));
-        $data  = Say::where('say_state',6)->orderBy('say_id','asc')->paginate(4);
+        $data  = Say::where('say_state',6)->orderBy('say_id','desc')->with('reply')->paginate(4);
         return view('home.say.say',['title' => '说说','data' => $data]);
     }
 
@@ -28,7 +28,7 @@ class SayController extends CommonController {
         if($input = $request->except('_token')){
             $data = array(
                 'say_content' => $input['content'],
-                'user_name' => 'darry',
+                'user_name' => session('login_user.user_name'),
                 'create_time' => $_SERVER['REQUEST_TIME'],
                 'create_ip' => $request->getClientIp()
             );
@@ -41,8 +41,8 @@ class SayController extends CommonController {
     public function repay_queue(Request $request)
     {
         if($input = $request->except('_token')){
-            $input['reply_user_face'] = 'http://localhost/static/home/images/Portrait/17.jpg';
-            $input['reply_user_name'] = '忆犹-darry';
+            $input['reply_user_face'] = session('login_user.user_face');
+            $input['reply_user_name'] = session('login_user.user_name');
             $input['create_time'] = $_SERVER['REQUEST_TIME'];
             return $this->dispatch(new SendReply($input));
         }else{

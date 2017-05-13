@@ -15,4 +15,8 @@ class Say extends Model {
     protected $primaryKey = 'say_id';
     public $timestamps = false;
     protected $guarded = [];
+
+    public function reply(){
+        return $this->hasMany('App\Http\Model\Reply','say_id');
+    }
 }
