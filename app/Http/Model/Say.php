@@ -17,6 +17,6 @@ class Say extends Model {
     protected $guarded = [];
 
     public function reply(){
-        return $this->hasMany('App\Http\Model\Reply','say_id');
+        return $this->hasMany('App\Http\Model\Reply','say_id')->orderBy('reply_id','asc')->select(['reply_id','say_id','content','reply_user_name','reply_user_face','be_reply_user_name','create_time']);
     }
 }
