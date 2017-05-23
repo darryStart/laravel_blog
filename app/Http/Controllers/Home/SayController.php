@@ -15,11 +15,11 @@ class SayController extends CommonController {
     public function say(Request $request)
     {
         Session::set('login_user',array('user_id' => '1', 'user_name' => 'admin-darry','user_face' => 'http://localhost/static/home/images/Portrait/16.jpg'));
-        $data  = Say::where('say_state',6)
+        $data  = Say::where('state',6)
                 ->orderBy('say_id','desc')
                 ->with('reply')
                 ->paginate(4,array(
-                    'say_id','say_content','user_name','user_face','say_state','create_city','create_os','create_time'
+                    'say_id','say_content','user_name','user_face','state','create_city','create_os','create_time'
         ));
         return view('home.say.say',['title' => '说说','data' => $data]);
     }

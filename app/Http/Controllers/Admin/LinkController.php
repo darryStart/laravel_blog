@@ -52,6 +52,12 @@ class LinkController extends CommonController
         }
     }
 
+    /**
+     * 编辑友链
+     * @param $link_id
+     * @param Request $request
+     * @return $this|\Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
     public function link_edit($link_id, Request $request)
     {
         if($input = $request->except('_token')){

@@ -101,12 +101,12 @@
                             <li @if(strstr(Request::fullUrl(),route('article')) or strstr(Request::fullUrl(),route('article_add')) or strstr(Request::fullUrl(),route('article_edit'))) class="active" @endif><a href="{{url('admin/article/article_list')}}">文章管理</a></li>
                         </ul>
                     </li>
-                    <li class="submenu">
-                        <a href="#"><i class="icon fa fa-comments"></i> <span>说说管理</span>
+                    <li class="submenu @if(strstr(Request::fullUrl(),route('say_list'))) active @endif">
+                        <a><i class="icon fa fa-comments"></i> <span>说说管理</span>
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
-                            <li><a href="/index.php?s=/Admin/said/index.html">说说管理</a></li>
+                            <li @if(strstr(Request::fullUrl(),route('say_list'))) class='active' @endif><a href="{{route('say_list')}}">说说管理</a></li>
                         </ul>
                     </li>
                     <li class="submenu">

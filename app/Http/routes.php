@@ -41,7 +41,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin','middleware' => ['admi
     Route::post('link/state','LinkController@state')->name('link_state');//修改友链状态
     Route::get('link/link_del/{link_id}','LinkController@link_del')->where('link_id','[0-9]+')->name('link_del');//删除友链
 
-
+    Route::get('say','SayController@say')->name('say_list');//说说列表
+    Route::get('say_del/{id}', 'SayController@say_del')->where('id','[0-9]+');//删除说说及评论
+    Route::post('say_state','SayController@state')->name('say_state');//修改状态
 
 
 
