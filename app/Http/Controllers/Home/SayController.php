@@ -61,6 +61,4 @@ class SayController extends CommonController {
             return 0;
         }
     }
-
-
 }

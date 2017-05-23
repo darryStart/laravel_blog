@@ -3,9 +3,11 @@
 namespace App\Jobs;
 
 use App\Http\Model\Reply;
+use App\Http\Model\Say;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\DB;
 
 class SendReply extends Job implements ShouldQueue
 {
@@ -30,6 +32,9 @@ class SendReply extends Job implements ShouldQueue
      */
     public function handle()
     {
-       return Reply::insert($this->data);
+        return DB::transaction(function () {
+            Say::where('say_id',$this->data['say_id'])->increment('reply_num',1);
+            Reply::insert($this->data);
+        });
     }
 }

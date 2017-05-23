@@ -95,47 +95,19 @@
         </div>
         <div class="tab-body ">
             <div class="tab-panel active" id="tab-start2">
-                <div class="panel-group" style="border-top: solid 0px #ddd;">
-                    <div class="media media-x">
-                        <a class="float-left" href="/Liuyan/index.html">
-                            <img src="http://q.qlogo.cn/qqapp/101250624/57852C83E8DD7171B6621FBE221767F5/100" class="radius-circle" width="60px" height="60px">
-                        </a>
-                        <div class="media-body">
-                            <strong><span class="icon-paper-plane"></span>  MSilence</strong>
-                            <span class="tag bg-dot">Win 7</span> 压缩文件解压还需要密码...
+                @foreach($hot_say as $v)
+                    <div class="panel-group" style="border-top: solid 0px #ddd;">
+                        <div class="media media-x">
+                            <a class="float-left" href="{{route('say')}}">
+                                <img src="{{asset($v->user_face)}}" class="radius-circle" width="60px" height="60px">
+                            </a>
+                            <div class="media-body">
+                                <strong><span class="icon-paper-plane"></span>{{$v->user_name}}</strong>
+                                <span class="tag bg-dot">{{$v->create_os}}</span> {!! @mb_substr($v->say_content,0,36) !!}....
+                            </div>
                         </div>
                     </div>
-                </div><div class="panel-group" style="border-top: solid 0px #ddd;">
-                    <div class="media media-x">
-                        <a class="float-left" href="/Liuyan/index.html">
-                            <img src="http://q.qlogo.cn/qqapp/101250624/3BF9C9565AA7FA95A57882BC217F4B74/100" class="radius-circle" width="60px" height="60px">
-                        </a>
-                        <div class="media-body">
-                            <strong><span class="icon-paper-plane"></span>  锕bin</strong>
-                            <span class="tag bg-dot">Unknown</span> 群加不进去 请问源码哪里能获取？...
-                        </div>
-                    </div>
-                </div><div class="panel-group" style="border-top: solid 0px #ddd;">
-                    <div class="media media-x">
-                        <a class="float-left" href="/Liuyan/index.html">
-                            <img src="http://q.qlogo.cn/qqapp/101250624/3A0ABDB7F75CE58D55B1974CB6210556/100" class="radius-circle" width="60px" height="60px">
-                        </a>
-                        <div class="media-body">
-                            <strong><span class="icon-paper-plane"></span>  深圳市卢敖科技有限公司</strong>
-                            <span class="tag bg-dot">Unknown</span> 加不了群，发下源码到邮箱吧！...
-                        </div>
-                    </div>
-                </div><div class="panel-group" style="border-top: solid 0px #ddd;">
-                    <div class="media media-x">
-                        <a class="float-left" href="/Liuyan/index.html">
-                            <img src="http://q.qlogo.cn/qqapp/101250624/2C8271DA9213DFC29170F0A058AC1C2F/100" class="radius-circle" width="60px" height="60px">
-                        </a>
-                        <div class="media-body">
-                            <strong><span class="icon-paper-plane"></span>  Baby)不哭...[̲̅V̲̅I̲̅P̅]</strong>
-                            <span class="tag bg-dot">Win 7</span> 支持支持哦...
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="tab-panel" id="tab-css2" >
                 @foreach($hot_art as $v)

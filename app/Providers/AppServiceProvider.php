@@ -6,9 +6,9 @@ use App\Http\Model\Advert;
 use App\Http\Model\Article;
 use App\Http\Model\ArticleCate;
 use App\Http\Model\Link;
+use App\Http\Model\Say;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -89,6 +89,13 @@ class AppServiceProvider extends ServiceProvider
             Cache::put('link_cache',$link,60);
         }
 
+        //热门说说
+//        if(Cache::has('hot_say_cache')){
+//            $hot_say = Cache::get('hot_say_cache');
+//        }else{
+            $hot_say = Say::where('say_state',6)->orderBy('reply_num','desc')->take(4)->get(['say_content','user_name','user_face','say_state','create_city','create_os','create_time','reply_num']);
+            Cache::put('hot_say_cache',$hot_say,60);
+//        }
 
         //数据共享
         view()->share(array(
@@ -97,7 +104,8 @@ class AppServiceProvider extends ServiceProvider
             'label'     => $label,
             'random_art' => $random_art,
             'hot_art'   => $hot_art,
-            'link'      => $link
+            'link'      => $link,
+            'hot_say'   => $hot_say
         ));
     }
 

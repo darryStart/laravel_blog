@@ -4466,6 +4466,7 @@ textarea.input {
 
 .tab .tab-nav {
 	list-style: none;
+	margin-left: 10%;
 }
 
 .tab .tab-nav li {
