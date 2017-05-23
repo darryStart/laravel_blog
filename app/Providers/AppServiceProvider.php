@@ -90,12 +90,12 @@ class AppServiceProvider extends ServiceProvider
         }
 
         //热门说说
-//        if(Cache::has('hot_say_cache')){
-//            $hot_say = Cache::get('hot_say_cache');
-//        }else{
+        if(Cache::has('hot_say_cache')){
+            $hot_say = Cache::get('hot_say_cache');
+        }else{
             $hot_say = Say::where('say_state',6)->orderBy('reply_num','desc')->take(4)->get(['say_content','user_name','user_face','say_state','create_city','create_os','create_time','reply_num']);
             Cache::put('hot_say_cache',$hot_say,60);
-//        }
+        }
 
         //数据共享
         view()->share(array(
