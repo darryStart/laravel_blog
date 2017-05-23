@@ -38,7 +38,7 @@ $(function () {
     //发表说说
     $('#say-submit').click(function () {
         if($('#content').val() == ''){
-            $("#content").css("border-color","red");
+            $("#content").css("border-color","red").focus();
             return false;
         }else {
             $("#content").css("border-color","");
@@ -50,7 +50,7 @@ $(function () {
             type:'post',
             success:function (msg) {
                 if(msg != '200'){
-                    $("#txt_check").css("border-color","red");
+                    $("#txt_check").css("border-color","red").focus();
                     re_captcha();
                     return false;
                 }else{
@@ -58,14 +58,15 @@ $(function () {
 
                     $("#say-submit").attr('disabled',true);
                     $("#say-submit").html('正在发表中...');
+                    var url = $('#say-form').attr('action');
 
                     $.ajax({
-                        'url':'/say_add',
+                        'url':url,
                         'data':{'content':$('#content').val(),'_token':$('input[name="_token"]').val()},
                         'type':'post',
                         success:function (msg) {
                             if(msg == '200'){
-                                location.href ='/say';
+                                location.href = $("#say-form").attr('url');
                             }else{
                                 $('#link-submit').html('申请失败,请重新申请');
                             }

@@ -71,7 +71,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="panel-body">
-                            <form action="{:U('Home/liuyan/addContent')}" id="say-form" class="form form-block">
+                            <form action="{{route('say_add')}}" id="say-form" class="form form-block" url="{{route('say')}}">
                                 <div class="form-group">
                                     <div class="field">
                                         <textarea class="input" rows="5" name="content" id="content" cols="50" placeholder="说点什么吧...."></textarea>
@@ -193,11 +193,6 @@
     <script src="{{asset('static/home/js/say.js')}}"></script>
     <script>
         $(function () {
-
-
-
-
-
             $('.reply-sub').on('click', function () {
                 var _this = $(this);
                 var _content = _this.parents('.message').find('.say-content').html();

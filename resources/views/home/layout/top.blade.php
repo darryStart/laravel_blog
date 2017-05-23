@@ -14,9 +14,9 @@
             <div class=" xl12 xs9 xm9 xb10 nav-navicon" id="header-demo">
                 <div class="xs8 xm6 xb8 padding-small">
                     <ul class="nav nav-menu nav-inline nav-big">
-                        <li class="l_active"><a href="{{url('/')}}">首页</a></li>
-                        <li>
-                            <a href="#">分类<span class="arrow"></span></a>
+                        <li @if(Request::path() == '/')class="l_active" @endif><a href="{{route('home')}}">首页</a></li>
+                        <li @if(Request::path() > 0)class="l_active" @endif>
+                            <a>分类<span class="arrow"></span></a>
                             <ul class="drop-menu">
                                 @foreach($cate as $v)
                                 <li>
@@ -25,8 +25,8 @@
                                 @endforeach
                             </ul>
                         </li>
-                        <li><a href="{{route('say')}}">说说</a></li>
-                        <li><a href="">留言板</a></li>
+                        <li @if(Request::path() == 'say')class="l_active" @endif><a href="{{route('say')}}">说说</a></li>
+                        <li @if(Request::path() == 'message')class="l_active" @endif><a href="{{route('message')}}">留言板</a></li>
                         <li><a href="/friend.html">访客</a></li>
                         <li><a href="/about.html">关于我</a></li>
                     </ul>
@@ -36,8 +36,7 @@
                         <div class="input-group padding-little-top">
                             <input type="text" class="input border-main" name="keywords" size="30"
                                    placeholder="请输入关键词"/>
-                            <span class="addbtn"><button type="button"
-                                                         class="button bg-main icon-search"></button></span>
+                            <span class="addbtn"><button type="button" class="button bg-main icon-search"></button></span>
                         </div>
                     </form>
                 </div>

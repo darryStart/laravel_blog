@@ -59,7 +59,8 @@ Route::group(['namespace' => 'home'], function () {
     Route::post('say_add','SayController@say_add')->name('say_add');//添加说说
     Route::post('reply','SayController@repay_queue')->name('reply');//回复说说,此处使用了队列queue
 
-    Route::get('getip','SayController@getOS');
+    Route::get('message','MessageController@message')->name('message');//留言
+    Route::post('add_message','MessageController@add_message')->name('add_message');//添加留言
 });
 
 //图形验证
