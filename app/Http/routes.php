@@ -45,6 +45,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'admin','middleware' => ['admi
     Route::get('say_del/{id}', 'SayController@say_del')->where('id','[0-9]+');//删除说说及评论
     Route::post('say_state','SayController@state')->name('say_state');//修改状态
 
+    Route::get('message','MessageController@message_list')->name('message_list');//留言列表
+    Route::match(['get','post'],'reply_message/{msg_id}','MessageController@reply_message')->where('msg_id','[0-9]+')->name('reply_message');//回复留言
+    Route::get('message_del/{id}','MessageController@message_del');//删除留言
+
 
 
 });

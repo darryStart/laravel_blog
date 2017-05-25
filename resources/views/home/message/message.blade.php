@@ -37,7 +37,7 @@
                                         <span>回复 @<a>{{$v->username}}</a> 中说到：</span>
                                     </div>
                                     <div class="liuyan_c">
-                                        {{$v->c_content}}
+                                        {!! $v->c_content !!}
                                     </div>
                                 </div>
                             </div>

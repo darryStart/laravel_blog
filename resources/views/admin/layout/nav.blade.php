@@ -109,12 +109,12 @@
                             <li @if(strstr(Request::fullUrl(),route('say_list'))) class='active' @endif><a href="{{route('say_list')}}">说说管理</a></li>
                         </ul>
                     </li>
-                    <li class="submenu">
+                    <li class="submenu @if(strstr(Request::fullUrl(),route('message_list'))) active @endif">
                         <a href="#"><i class="icon fa fa-thumbs-up"></i> <span>留言管理</span>
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level">
-                            <li><a href="/index.php?s=/Admin/liuyan/index.html">留言管理</a></li>
+                            <li @if(strstr(Request::fullUrl(),route('message_list'))) class="active" @endif><a href="{{route('message_list')}}">留言管理</a></li>
                         </ul>
                     </li>
                     <li class="submenu @if(strstr(Request::fullUrl(),route('link'))  or strstr(Request::fullUrl(),route('link_add')) or strstr(Request::fullUrl(),route('link_edit'))) active @endif"">

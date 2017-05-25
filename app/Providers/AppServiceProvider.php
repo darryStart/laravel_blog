@@ -93,7 +93,7 @@ class AppServiceProvider extends ServiceProvider
         if(Cache::has('hot_say_cache')){
             $hot_say = Cache::get('hot_say_cache');
         }else{
-            $hot_say = Say::where('state',6)->orderBy('reply_num','desc')->take(4)->get(['say_content','user_name','user_face','say_state','create_city','create_os','create_time','reply_num']);
+            $hot_say = Say::where('state',6)->orderBy('reply_num','desc')->take(4)->get(['say_content','user_name','user_face','state','create_city','create_os','create_time','reply_num']);
             Cache::put('hot_say_cache',$hot_say,60);
         }
 
